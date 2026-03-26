@@ -152,17 +152,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     /* === HERO === */
     #hero { padding: 20px 20px 52px; background: #fff; border-bottom: 1px solid var(--border); }
     .hero-inner { max-width: 660px; margin: 0 auto; }
-    .hero-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; color: var(--green); background: #eef2ef; border-radius: 100px; padding: 5px 13px; margin-bottom: 16px; text-transform: uppercase; }
-    .hero-pill svg { width: 11px; height: 11px; }
+    .hero-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; color: var(--green); background: #eef2ef; border-radius: 100px; padding: 7px 13px 5px; margin-bottom: 16px; text-transform: uppercase; line-height: 1; }
+    .hero-pill svg { width: 11px; height: 11px; flex-shrink: 0; position: relative; top: -1px; }
     h1.hero-title { color: var(--green); margin-bottom: 8px; }
     .hero-subtitle { font-size: 0.93rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.65; max-width: 500px; }
     .hero-price { margin-bottom: 8px; font-weight: 700; color: var(--text-mid); font-size: 1rem; }
     .hero-price .num { color: var(--orange); font-size: 1.5rem; font-family: 'Cardo', serif; font-weight: 700; }
     .hero-price .aed { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
-    .open-now { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: #15803d; margin-bottom: 22px; }
+    @keyframes pulse-subtle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.15); }
+    }
+    .header-right { display: flex; align-items: center; gap: 12px; }
+    .open-now { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: #15803d; }
     .open-now.closed { color: var(--text-muted); }
-    .open-now .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block; flex-shrink: 0; }
-    .open-now.closed .dot { background: #9ca3af; }
+    .open-now .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block; flex-shrink: 0; animation: pulse-subtle 2.5s ease-in-out infinite; }
+    .open-now.closed .dot { background: #9ca3af; animation: none; }
+    .header-location { display: inline-flex; align-items: center; gap: 5px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; color: var(--green); background: #eef2ef; border-radius: 100px; padding: 7px 13px 5px; text-transform: uppercase; line-height: 1; }
+    .header-location svg { stroke: var(--green); width: 11px; height: 11px; flex-shrink: 0; position: relative; top: -1px; }
+    .open-now-hero { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: #15803d; background: none; padding: 0; margin-bottom: 16px; line-height: 1; }
+    .open-now-hero .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; flex-shrink: 0; animation: pulse-subtle 2.5s ease-in-out infinite; position: relative; top: -1px; }
+    .open-now-hero.closed { color: var(--text-muted); }
+    .open-now-hero.closed .dot { background: #9ca3af; animation: none; }
     .hero-images { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 26px; border-radius: var(--radius-lg); overflow: hidden; }
     .hero-img { background: #e0ddd8; overflow: hidden; }
     .hero-img:first-child { grid-column: 1 / -1; height: 200px; }
@@ -411,8 +422,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a href="#gallery">Gallery</a>
 <a href="#location">Location</a>
 </nav>
-<div class="open-now" id="openStatus" style="margin-right:12px;">
-<span class="dot"></span><span id="openText">Open Now</span>
+<div class="header-right">
+<div class="header-location">
+<svg fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="14" height="14"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+Oud Metha, Dubai
 </div>
 <div class="nav-cta">
 <a class="btn btn--wa btn--sm cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="header-whatsapp" rel="noopener" target="_blank">
@@ -420,23 +433,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       WhatsApp Us
     </a>
 </div>
+</div>
 </header>
 <section id="hero">
 <div class="hero-inner">
-<div class="hero-pill">
-<svg fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-      Oud Metha, Dubai
-    </div>
+<div class="open-now-hero" id="openStatusHero">
+<span class="dot"></span><span id="openTextHero">Open Now</span>
+</div>
 <h1 class="hero-title">King Styling Gents Salon</h1>
 <div class="hero-rating" style="display:flex;align-items:center;gap:6px;margin-bottom:10px;">
 <span style="font-size:1.1rem;font-weight:700;color:var(--green);">4.9</span>
 <span style="color:#fbbc04;font-size:1rem;letter-spacing:1px;">★★★★★</span>
-<span style="font-size:0.9rem;color:var(--text-muted);">(204)</span>
+<span style="font-size:0.9rem;color:var(--text-muted);">(200+)</span>
 <span style="font-size:0.9rem;color:var(--text-muted);">·</span>
 <span style="font-size:0.9rem;color:var(--text-muted);">Gents Barber in Oud Metha</span>
 </div>
-<p class="hero-subtitle">Haircuts, beard trims, facials and more.</p>
-<p class="hero-subtitle" style="margin-top:-4px;">Walk-ins welcome · Haircuts from AED 40</p>
+<p class="hero-subtitle">Haircuts from AED 40 · Beard trims, facials and more</p>
 <div class="hero-images">
 <div class="hero-img">
 <img alt="King Styling Gents Salon interior" src="images/hero1_store_interior_empty.jpg"/>
@@ -473,7 +485,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="gm-rating-row">
 <span class="gm-score">4.9</span>
 <span class="gm-stars">★★★★★</span>
-<span class="gm-count">(204)</span>
+<span class="gm-count">(200+)</span>
 </div>
 <div class="gm-label">200+ Google Maps Reviews</div>
 <div class="gm-verified">Verified Google Reviews</div>
@@ -715,8 +727,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   // === DYNAMIC OPEN/CLOSED STATUS (Dubai time, 10AM–1AM) ===
   (function() {
-    const el = document.getElementById('openStatus');
-    const txt = document.getElementById('openText');
+    const el = document.getElementById('openStatusHero');
+    const txt = document.getElementById('openTextHero');
     if (!el || !txt) return;
     const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Dubai' }));
     const h = now.getHours();

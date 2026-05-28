@@ -869,19 +869,28 @@ document.addEventListener('click', function(e) {
 
     var timer = null;
     var resumeTimer = null;
+    var lastUserInteraction = 0;
+    var AUTO_PAUSE_MS = 12000;
 
     function startAutoScroll() {
       clearInterval(timer);
-      timer = setInterval(function() { go(current + 1); }, 3500);
+      timer = setInterval(function() {
+        if (!isDragging && Date.now() - lastUserInteraction > AUTO_PAUSE_MS) go(current + 1);
+      }, 3500);
     }
 
-    function pauseAutoScroll(ms) {
+    function stopAutoScroll() {
       clearInterval(timer);
       clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(startAutoScroll, ms || 5000);
     }
 
-    function reset() { pauseAutoScroll(5000); }
+    function resumeAutoScrollAfter(ms) {
+      stopAutoScroll();
+      resumeTimer = setTimeout(startAutoScroll, ms || AUTO_PAUSE_MS);
+    }
+
+    function markUserInteraction() { lastUserInteraction = Date.now(); }
+    function reset() { markUserInteraction(); resumeAutoScrollAfter(AUTO_PAUSE_MS); }
     startAutoScroll();
 
     for (var i = 0; i < total; i++) {
@@ -897,6 +906,8 @@ document.addEventListener('click', function(e) {
     next.onclick = function() { go(current + 1); reset(); };
 
     track.addEventListener('touchstart', function(e) {
+      markUserInteraction();
+      stopAutoScroll();
       startX = e.touches[0].clientX;
       isDragging = true;
       startOffset = getCenteredOffset(current);
@@ -904,12 +915,14 @@ document.addEventListener('click', function(e) {
     }, { passive: true });
 
     track.addEventListener('touchmove', function(e) {
+      markUserInteraction();
       if (!isDragging) return;
       var diff = startX - e.touches[0].clientX;
       setOffset(startOffset + diff, false);
     }, { passive: true });
 
     track.addEventListener('touchend', function(e) {
+      markUserInteraction();
       if (!isDragging) return;
       isDragging = false;
       var diff = startX - e.changedTouches[0].clientX;
@@ -917,7 +930,16 @@ document.addEventListener('click', function(e) {
       reset();
     });
 
+    track.addEventListener('touchcancel', function() {
+      if (!isDragging) return;
+      isDragging = false;
+      update(true);
+      reset();
+    });
+
     track.addEventListener('mousedown', function(e) {
+      markUserInteraction();
+      stopAutoScroll();
       startX = e.clientX;
       isDragging = true;
       startOffset = getCenteredOffset(current);
@@ -927,12 +949,14 @@ document.addEventListener('click', function(e) {
     });
 
     track.addEventListener('mousemove', function(e) {
+      if (isDragging) markUserInteraction();
       if (!isDragging) return;
       var diff = startX - e.clientX;
       setOffset(startOffset + diff, false);
     });
 
     track.addEventListener('mouseup', function(e) {
+      markUserInteraction();
       if (!isDragging) return;
       isDragging = false;
       track.style.cursor = 'grab';
@@ -946,6 +970,7 @@ document.addEventListener('click', function(e) {
         isDragging = false;
         track.style.cursor = 'grab';
         update(true);
+        reset();
       }
     });
 

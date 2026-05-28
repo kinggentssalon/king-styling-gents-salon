@@ -8,96 +8,80 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5J7V282P');
   // === TRANSFORMATION CAROUSEL ===
   (function() {
-    var container = document.getElementById('tCarousel');
     var track = document.getElementById('tCarouselTrack');
-    var dotsContainer = document.getElementById('tCarouselDots');
-    var prevBtn = document.getElementById('tPrevBtn');
-    var nextBtn = document.getElementById('tNextBtn');
+    var dots  = document.getElementById('tCarouselDots');
+    var prev  = document.getElementById('tPrevBtn');
+    var next  = document.getElementById('tNextBtn');
     var slides = track.querySelectorAll('.t-slide');
-    var totalSlides = slides.length;
-    var currentIndex = 0;
-    var startX = 0;
-    var isDragging = false;
-    var startTranslate = 0;
+    var total = slides.length;
+    var current = 0, startX = 0, isDragging = false, startTranslate = 0;
 
-    function getOffset() {
-      var sw = slides[0].offsetWidth;
-      var cw = container.offsetWidth;
-      return (cw - sw) / 2 - currentIndex * (sw + 12);
-    }
-
-    function updateCarousel() {
-      track.style.transform = 'translateX(' + getOffset() + 'px)';
-      slides.forEach(function(s, i) { s.classList.toggle('active', i === currentIndex); });
-      dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i) {
-        d.classList.toggle('active', i === currentIndex);
+    function update() {
+      var w = slides[0].offsetWidth + 12;
+      track.style.transform = 'translateX(-' + (current * w) + 'px)';
+      dots.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
       });
     }
 
-    function goToSlide(n) {
-      currentIndex = ((n % totalSlides) + totalSlides) % totalSlides;
-      updateCarousel();
+    function go(n) {
+      current = ((n % total) + total) % total;
+      update();
     }
 
-    var timer = setInterval(function() { goToSlide(currentIndex + 1); }, 3500);
-    function reset() {
-      clearInterval(timer);
-      timer = setInterval(function() { goToSlide(currentIndex + 1); }, 3500);
-    }
+    var timer = setInterval(function() { go(current + 1); }, 3500);
+    function reset() { clearInterval(timer); timer = setInterval(function() { go(current + 1); }, 3500); }
 
-    for (var i = 0; i < totalSlides; i++) {
+    for (var i = 0; i < total; i++) {
       (function(idx) {
         var d = document.createElement('button');
         d.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
-        d.onclick = function() { goToSlide(idx); reset(); };
-        dotsContainer.appendChild(d);
+        d.onclick = function() { go(idx); reset(); };
+        dots.appendChild(d);
       })(i);
     }
 
-    prevBtn.onclick = function() { goToSlide(currentIndex - 1); reset(); };
-    nextBtn.onclick = function() { goToSlide(currentIndex + 1); reset(); };
+    prev.onclick = function() { go(current - 1); reset(); };
+    next.onclick = function() { go(current + 1); reset(); };
 
     track.addEventListener('touchstart', function(e) {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-      startTranslate = getOffset();
+      startX = e.touches[0].clientX; isDragging = true;
+      startTranslate = current * (slides[0].offsetWidth + 12);
     }, { passive: true });
 
     track.addEventListener('touchmove', function(e) {
       if (!isDragging) return;
-      track.style.transform = 'translateX(' + (startTranslate - (startX - e.touches[0].clientX)) + 'px)';
+      track.style.transform = 'translateX(-' + (startTranslate + (startX - e.touches[0].clientX)) + 'px)';
     }, { passive: true });
 
     track.addEventListener('touchend', function(e) {
-      if (!isDragging) return;
-      isDragging = false;
+      if (!isDragging) return; isDragging = false;
       var diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) { goToSlide(currentIndex + (diff > 0 ? 1 : -1)); }
-      else { updateCarousel(); }
+      if (Math.abs(diff) > 50) { go(current + (diff > 0 ? 1 : -1)); } else { update(); }
       reset();
     });
 
     track.addEventListener('mousedown', function(e) {
-      startX = e.clientX; isDragging = true; startTranslate = getOffset();
-      e.preventDefault();
+      startX = e.clientX; isDragging = true;
+      startTranslate = current * (slides[0].offsetWidth + 12);
+      track.style.cursor = 'grabbing';
     });
     track.addEventListener('mousemove', function(e) {
       if (!isDragging) return;
-      track.style.transform = 'translateX(' + (startTranslate - (startX - e.clientX)) + 'px)';
+      track.style.transform = 'translateX(-' + (startTranslate + (startX - e.clientX)) + 'px)';
     });
     track.addEventListener('mouseup', function(e) {
-      if (!isDragging) return; isDragging = false;
+      if (!isDragging) return; isDragging = false; track.style.cursor = 'grab';
       var diff = startX - e.clientX;
-      if (Math.abs(diff) > 40) { goToSlide(currentIndex + (diff > 0 ? 1 : -1)); }
-      else { updateCarousel(); }
+      if (Math.abs(diff) > 50) { go(current + (diff > 0 ? 1 : -1)); } else { update(); }
       reset();
     });
     track.addEventListener('mouseleave', function() {
-      if (isDragging) { isDragging = false; updateCarousel(); }
+      if (isDragging) { isDragging = false; track.style.cursor = 'grab'; update(); }
     });
 
-    window.addEventListener('resize', updateCarousel);
-    updateCarousel();
+    window.addEventListener('resize', update);
+    update();
   })();
 
 </script>
@@ -110,96 +94,80 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   // === TRANSFORMATION CAROUSEL ===
   (function() {
-    var container = document.getElementById('tCarousel');
     var track = document.getElementById('tCarouselTrack');
-    var dotsContainer = document.getElementById('tCarouselDots');
-    var prevBtn = document.getElementById('tPrevBtn');
-    var nextBtn = document.getElementById('tNextBtn');
+    var dots  = document.getElementById('tCarouselDots');
+    var prev  = document.getElementById('tPrevBtn');
+    var next  = document.getElementById('tNextBtn');
     var slides = track.querySelectorAll('.t-slide');
-    var totalSlides = slides.length;
-    var currentIndex = 0;
-    var startX = 0;
-    var isDragging = false;
-    var startTranslate = 0;
+    var total = slides.length;
+    var current = 0, startX = 0, isDragging = false, startTranslate = 0;
 
-    function getOffset() {
-      var sw = slides[0].offsetWidth;
-      var cw = container.offsetWidth;
-      return (cw - sw) / 2 - currentIndex * (sw + 12);
-    }
-
-    function updateCarousel() {
-      track.style.transform = 'translateX(' + getOffset() + 'px)';
-      slides.forEach(function(s, i) { s.classList.toggle('active', i === currentIndex); });
-      dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i) {
-        d.classList.toggle('active', i === currentIndex);
+    function update() {
+      var w = slides[0].offsetWidth + 12;
+      track.style.transform = 'translateX(-' + (current * w) + 'px)';
+      dots.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
       });
     }
 
-    function goToSlide(n) {
-      currentIndex = ((n % totalSlides) + totalSlides) % totalSlides;
-      updateCarousel();
+    function go(n) {
+      current = ((n % total) + total) % total;
+      update();
     }
 
-    var timer = setInterval(function() { goToSlide(currentIndex + 1); }, 3500);
-    function reset() {
-      clearInterval(timer);
-      timer = setInterval(function() { goToSlide(currentIndex + 1); }, 3500);
-    }
+    var timer = setInterval(function() { go(current + 1); }, 3500);
+    function reset() { clearInterval(timer); timer = setInterval(function() { go(current + 1); }, 3500); }
 
-    for (var i = 0; i < totalSlides; i++) {
+    for (var i = 0; i < total; i++) {
       (function(idx) {
         var d = document.createElement('button');
         d.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
-        d.onclick = function() { goToSlide(idx); reset(); };
-        dotsContainer.appendChild(d);
+        d.onclick = function() { go(idx); reset(); };
+        dots.appendChild(d);
       })(i);
     }
 
-    prevBtn.onclick = function() { goToSlide(currentIndex - 1); reset(); };
-    nextBtn.onclick = function() { goToSlide(currentIndex + 1); reset(); };
+    prev.onclick = function() { go(current - 1); reset(); };
+    next.onclick = function() { go(current + 1); reset(); };
 
     track.addEventListener('touchstart', function(e) {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-      startTranslate = getOffset();
+      startX = e.touches[0].clientX; isDragging = true;
+      startTranslate = current * (slides[0].offsetWidth + 12);
     }, { passive: true });
 
     track.addEventListener('touchmove', function(e) {
       if (!isDragging) return;
-      track.style.transform = 'translateX(' + (startTranslate - (startX - e.touches[0].clientX)) + 'px)';
+      track.style.transform = 'translateX(-' + (startTranslate + (startX - e.touches[0].clientX)) + 'px)';
     }, { passive: true });
 
     track.addEventListener('touchend', function(e) {
-      if (!isDragging) return;
-      isDragging = false;
+      if (!isDragging) return; isDragging = false;
       var diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) { goToSlide(currentIndex + (diff > 0 ? 1 : -1)); }
-      else { updateCarousel(); }
+      if (Math.abs(diff) > 50) { go(current + (diff > 0 ? 1 : -1)); } else { update(); }
       reset();
     });
 
     track.addEventListener('mousedown', function(e) {
-      startX = e.clientX; isDragging = true; startTranslate = getOffset();
-      e.preventDefault();
+      startX = e.clientX; isDragging = true;
+      startTranslate = current * (slides[0].offsetWidth + 12);
+      track.style.cursor = 'grabbing';
     });
     track.addEventListener('mousemove', function(e) {
       if (!isDragging) return;
-      track.style.transform = 'translateX(' + (startTranslate - (startX - e.clientX)) + 'px)';
+      track.style.transform = 'translateX(-' + (startTranslate + (startX - e.clientX)) + 'px)';
     });
     track.addEventListener('mouseup', function(e) {
-      if (!isDragging) return; isDragging = false;
+      if (!isDragging) return; isDragging = false; track.style.cursor = 'grab';
       var diff = startX - e.clientX;
-      if (Math.abs(diff) > 40) { goToSlide(currentIndex + (diff > 0 ? 1 : -1)); }
-      else { updateCarousel(); }
+      if (Math.abs(diff) > 50) { go(current + (diff > 0 ? 1 : -1)); } else { update(); }
       reset();
     });
     track.addEventListener('mouseleave', function() {
-      if (isDragging) { isDragging = false; updateCarousel(); }
+      if (isDragging) { isDragging = false; track.style.cursor = 'grab'; update(); }
     });
 
-    window.addEventListener('resize', updateCarousel);
-    updateCarousel();
+    window.addEventListener('resize', update);
+    update();
   })();
 
 </script>
@@ -233,96 +201,80 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   // === TRANSFORMATION CAROUSEL ===
   (function() {
-    var container = document.getElementById('tCarousel');
     var track = document.getElementById('tCarouselTrack');
-    var dotsContainer = document.getElementById('tCarouselDots');
-    var prevBtn = document.getElementById('tPrevBtn');
-    var nextBtn = document.getElementById('tNextBtn');
+    var dots  = document.getElementById('tCarouselDots');
+    var prev  = document.getElementById('tPrevBtn');
+    var next  = document.getElementById('tNextBtn');
     var slides = track.querySelectorAll('.t-slide');
-    var totalSlides = slides.length;
-    var currentIndex = 0;
-    var startX = 0;
-    var isDragging = false;
-    var startTranslate = 0;
+    var total = slides.length;
+    var current = 0, startX = 0, isDragging = false, startTranslate = 0;
 
-    function getOffset() {
-      var sw = slides[0].offsetWidth;
-      var cw = container.offsetWidth;
-      return (cw - sw) / 2 - currentIndex * (sw + 12);
-    }
-
-    function updateCarousel() {
-      track.style.transform = 'translateX(' + getOffset() + 'px)';
-      slides.forEach(function(s, i) { s.classList.toggle('active', i === currentIndex); });
-      dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i) {
-        d.classList.toggle('active', i === currentIndex);
+    function update() {
+      var w = slides[0].offsetWidth + 12;
+      track.style.transform = 'translateX(-' + (current * w) + 'px)';
+      dots.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
       });
     }
 
-    function goToSlide(n) {
-      currentIndex = ((n % totalSlides) + totalSlides) % totalSlides;
-      updateCarousel();
+    function go(n) {
+      current = ((n % total) + total) % total;
+      update();
     }
 
-    var timer = setInterval(function() { goToSlide(currentIndex + 1); }, 3500);
-    function reset() {
-      clearInterval(timer);
-      timer = setInterval(function() { goToSlide(currentIndex + 1); }, 3500);
-    }
+    var timer = setInterval(function() { go(current + 1); }, 3500);
+    function reset() { clearInterval(timer); timer = setInterval(function() { go(current + 1); }, 3500); }
 
-    for (var i = 0; i < totalSlides; i++) {
+    for (var i = 0; i < total; i++) {
       (function(idx) {
         var d = document.createElement('button');
         d.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
-        d.onclick = function() { goToSlide(idx); reset(); };
-        dotsContainer.appendChild(d);
+        d.onclick = function() { go(idx); reset(); };
+        dots.appendChild(d);
       })(i);
     }
 
-    prevBtn.onclick = function() { goToSlide(currentIndex - 1); reset(); };
-    nextBtn.onclick = function() { goToSlide(currentIndex + 1); reset(); };
+    prev.onclick = function() { go(current - 1); reset(); };
+    next.onclick = function() { go(current + 1); reset(); };
 
     track.addEventListener('touchstart', function(e) {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-      startTranslate = getOffset();
+      startX = e.touches[0].clientX; isDragging = true;
+      startTranslate = current * (slides[0].offsetWidth + 12);
     }, { passive: true });
 
     track.addEventListener('touchmove', function(e) {
       if (!isDragging) return;
-      track.style.transform = 'translateX(' + (startTranslate - (startX - e.touches[0].clientX)) + 'px)';
+      track.style.transform = 'translateX(-' + (startTranslate + (startX - e.touches[0].clientX)) + 'px)';
     }, { passive: true });
 
     track.addEventListener('touchend', function(e) {
-      if (!isDragging) return;
-      isDragging = false;
+      if (!isDragging) return; isDragging = false;
       var diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) { goToSlide(currentIndex + (diff > 0 ? 1 : -1)); }
-      else { updateCarousel(); }
+      if (Math.abs(diff) > 50) { go(current + (diff > 0 ? 1 : -1)); } else { update(); }
       reset();
     });
 
     track.addEventListener('mousedown', function(e) {
-      startX = e.clientX; isDragging = true; startTranslate = getOffset();
-      e.preventDefault();
+      startX = e.clientX; isDragging = true;
+      startTranslate = current * (slides[0].offsetWidth + 12);
+      track.style.cursor = 'grabbing';
     });
     track.addEventListener('mousemove', function(e) {
       if (!isDragging) return;
-      track.style.transform = 'translateX(' + (startTranslate - (startX - e.clientX)) + 'px)';
+      track.style.transform = 'translateX(-' + (startTranslate + (startX - e.clientX)) + 'px)';
     });
     track.addEventListener('mouseup', function(e) {
-      if (!isDragging) return; isDragging = false;
+      if (!isDragging) return; isDragging = false; track.style.cursor = 'grab';
       var diff = startX - e.clientX;
-      if (Math.abs(diff) > 40) { goToSlide(currentIndex + (diff > 0 ? 1 : -1)); }
-      else { updateCarousel(); }
+      if (Math.abs(diff) > 50) { go(current + (diff > 0 ? 1 : -1)); } else { update(); }
       reset();
     });
     track.addEventListener('mouseleave', function() {
-      if (isDragging) { isDragging = false; updateCarousel(); }
+      if (isDragging) { isDragging = false; track.style.cursor = 'grab'; update(); }
     });
 
-    window.addEventListener('resize', updateCarousel);
-    updateCarousel();
+    window.addEventListener('resize', update);
+    update();
   })();
 
 </script>
@@ -607,39 +559,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 
   /* === TRANSFORMATION CAROUSEL === */
-  .t-carousel-wrap { padding-bottom: 32px; }
-  .t-carousel-outer {
-    overflow: hidden; position: relative;
-    margin: 0; padding: 0;
-  }
+  .t-carousel-wrap { padding: 0 0 32px; }
+  .t-carousel-container-2 { overflow: hidden; border-radius: var(--radius-lg); }
   .t-carousel-track {
-    display: flex; gap: 12px;
-    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-    touch-action: pan-y pinch-zoom; will-change: transform;
+    display: flex; touch-action: pan-y pinch-zoom;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: grab;
   }
   .t-carousel-track:active { cursor: grabbing; }
   .t-slide {
-    min-width: 78%; flex-shrink: 0; border-radius: var(--radius-lg);
-    overflow: hidden; background: #e0ddd8; aspect-ratio: 3/4; position: relative;
-    transition: transform 0.45s ease, opacity 0.45s ease;
-    transform: scale(0.92); opacity: 0.55;
+    min-width: 85%; margin-right: 12px; flex-shrink: 0;
+    border-radius: var(--radius-lg); overflow: hidden;
+    background: #e0ddd8; aspect-ratio: 3/4; position: relative;
   }
-  .t-slide.active { transform: scale(1); opacity: 1; }
   .t-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .t-slide .transform-badge {
     position: absolute; bottom: 12px; left: 12px;
     font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
     text-transform: uppercase; padding: 4px 10px; border-radius: 20px; z-index: 10;
   }
-  .t-nav {
-    position: absolute; top: 50%; left: 0; right: 0;
-    transform: translateY(-50%); display: flex; justify-content: space-between;
-    padding: 0 6px; pointer-events: none;
-  }
-
-  @media (min-width: 560px) { .t-slide { min-width: 68%; } }
-  @media (min-width: 700px) { .t-slide { min-width: 52%; } }
+  
+  @media (min-width: 560px) { .t-slide { min-width: 70%; } }
+  @media (min-width: 700px) { .t-slide { min-width: 55%; } }
 
   @media (min-width: 560px) {
     .carousel-slide { min-width: 68%; }
@@ -718,18 +659,20 @@ Check if Your Hair is Suitable
 </div>
 </div>
 <div class="t-carousel-wrap">
-<div class="t-carousel-outer" id="tCarousel">
+<div style="position:relative;">
+<div class="t-carousel-container-2" id="tCarousel">
 <div class="t-carousel-track" id="tCarouselTrack">
-<div class="t-slide active"><img alt="Client 1 before perm" src="images/c1_before1.webp"/><div class="transform-badge badge-process">Before</div></div>
+<div class="t-slide"><img alt="Client 1 before perm" src="images/c1_before1.webp"/><div class="transform-badge badge-process">Before</div></div>
 <div class="t-slide"><img alt="Client 1 perm result" src="images/c1_result1.webp"/><div class="transform-badge badge-result">Result</div></div>
 <div class="t-slide"><img alt="Client 2 before perm" src="images/c2_before1.webp"/><div class="transform-badge badge-process">Before</div></div>
 <div class="t-slide"><img alt="Client 2 perm result" src="images/c2_result1.webp"/><div class="transform-badge badge-result">Result</div></div>
-<div class="t-slide"><img alt="Client 3 before perm back" src="images/c3_before1.webp"/><div class="transform-badge badge-process">Before</div></div>
-<div class="t-slide"><img alt="Client 3 before perm front" src="images/c3_before2.webp"/><div class="transform-badge badge-process">Before</div></div>
+<div class="t-slide"><img alt="Client 3 before back" src="images/c3_before1.webp"/><div class="transform-badge badge-process">Before</div></div>
+<div class="t-slide"><img alt="Client 3 before front" src="images/c3_before2.webp"/><div class="transform-badge badge-process">Before</div></div>
 <div class="t-slide"><img alt="Client 3 result back" src="images/c3_result1.webp"/><div class="transform-badge badge-result">Result</div></div>
 <div class="t-slide"><img alt="Client 3 result front" src="images/c3_result2.webp"/><div class="transform-badge badge-result">Result</div></div>
 </div>
-<div class="t-nav">
+</div>
+<div class="carousel-nav">
 <button class="carousel-btn" id="tPrevBtn" aria-label="Previous">&#8249;</button>
 <button class="carousel-btn" id="tNextBtn" aria-label="Next">&#8250;</button>
 </div>
@@ -1234,96 +1177,80 @@ document.addEventListener('click', function(e) {
 
   // === TRANSFORMATION CAROUSEL ===
   (function() {
-    var container = document.getElementById('tCarousel');
     var track = document.getElementById('tCarouselTrack');
-    var dotsContainer = document.getElementById('tCarouselDots');
-    var prevBtn = document.getElementById('tPrevBtn');
-    var nextBtn = document.getElementById('tNextBtn');
+    var dots  = document.getElementById('tCarouselDots');
+    var prev  = document.getElementById('tPrevBtn');
+    var next  = document.getElementById('tNextBtn');
     var slides = track.querySelectorAll('.t-slide');
-    var totalSlides = slides.length;
-    var currentIndex = 0;
-    var startX = 0;
-    var isDragging = false;
-    var startTranslate = 0;
+    var total = slides.length;
+    var current = 0, startX = 0, isDragging = false, startTranslate = 0;
 
-    function getOffset() {
-      var sw = slides[0].offsetWidth;
-      var cw = container.offsetWidth;
-      return (cw - sw) / 2 - currentIndex * (sw + 12);
-    }
-
-    function updateCarousel() {
-      track.style.transform = 'translateX(' + getOffset() + 'px)';
-      slides.forEach(function(s, i) { s.classList.toggle('active', i === currentIndex); });
-      dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i) {
-        d.classList.toggle('active', i === currentIndex);
+    function update() {
+      var w = slides[0].offsetWidth + 12;
+      track.style.transform = 'translateX(-' + (current * w) + 'px)';
+      dots.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === current);
       });
     }
 
-    function goToSlide(n) {
-      currentIndex = ((n % totalSlides) + totalSlides) % totalSlides;
-      updateCarousel();
+    function go(n) {
+      current = ((n % total) + total) % total;
+      update();
     }
 
-    var timer = setInterval(function() { goToSlide(currentIndex + 1); }, 3500);
-    function reset() {
-      clearInterval(timer);
-      timer = setInterval(function() { goToSlide(currentIndex + 1); }, 3500);
-    }
+    var timer = setInterval(function() { go(current + 1); }, 3500);
+    function reset() { clearInterval(timer); timer = setInterval(function() { go(current + 1); }, 3500); }
 
-    for (var i = 0; i < totalSlides; i++) {
+    for (var i = 0; i < total; i++) {
       (function(idx) {
         var d = document.createElement('button');
         d.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
-        d.onclick = function() { goToSlide(idx); reset(); };
-        dotsContainer.appendChild(d);
+        d.onclick = function() { go(idx); reset(); };
+        dots.appendChild(d);
       })(i);
     }
 
-    prevBtn.onclick = function() { goToSlide(currentIndex - 1); reset(); };
-    nextBtn.onclick = function() { goToSlide(currentIndex + 1); reset(); };
+    prev.onclick = function() { go(current - 1); reset(); };
+    next.onclick = function() { go(current + 1); reset(); };
 
     track.addEventListener('touchstart', function(e) {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-      startTranslate = getOffset();
+      startX = e.touches[0].clientX; isDragging = true;
+      startTranslate = current * (slides[0].offsetWidth + 12);
     }, { passive: true });
 
     track.addEventListener('touchmove', function(e) {
       if (!isDragging) return;
-      track.style.transform = 'translateX(' + (startTranslate - (startX - e.touches[0].clientX)) + 'px)';
+      track.style.transform = 'translateX(-' + (startTranslate + (startX - e.touches[0].clientX)) + 'px)';
     }, { passive: true });
 
     track.addEventListener('touchend', function(e) {
-      if (!isDragging) return;
-      isDragging = false;
+      if (!isDragging) return; isDragging = false;
       var diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) { goToSlide(currentIndex + (diff > 0 ? 1 : -1)); }
-      else { updateCarousel(); }
+      if (Math.abs(diff) > 50) { go(current + (diff > 0 ? 1 : -1)); } else { update(); }
       reset();
     });
 
     track.addEventListener('mousedown', function(e) {
-      startX = e.clientX; isDragging = true; startTranslate = getOffset();
-      e.preventDefault();
+      startX = e.clientX; isDragging = true;
+      startTranslate = current * (slides[0].offsetWidth + 12);
+      track.style.cursor = 'grabbing';
     });
     track.addEventListener('mousemove', function(e) {
       if (!isDragging) return;
-      track.style.transform = 'translateX(' + (startTranslate - (startX - e.clientX)) + 'px)';
+      track.style.transform = 'translateX(-' + (startTranslate + (startX - e.clientX)) + 'px)';
     });
     track.addEventListener('mouseup', function(e) {
-      if (!isDragging) return; isDragging = false;
+      if (!isDragging) return; isDragging = false; track.style.cursor = 'grab';
       var diff = startX - e.clientX;
-      if (Math.abs(diff) > 40) { goToSlide(currentIndex + (diff > 0 ? 1 : -1)); }
-      else { updateCarousel(); }
+      if (Math.abs(diff) > 50) { go(current + (diff > 0 ? 1 : -1)); } else { update(); }
       reset();
     });
     track.addEventListener('mouseleave', function() {
-      if (isDragging) { isDragging = false; updateCarousel(); }
+      if (isDragging) { isDragging = false; track.style.cursor = 'grab'; update(); }
     });
 
-    window.addEventListener('resize', updateCarousel);
-    updateCarousel();
+    window.addEventListener('resize', update);
+    update();
   })();
 
 </script>

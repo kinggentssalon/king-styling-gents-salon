@@ -131,7 +131,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* === CAROUSEL === */
   .carousel-outer { overflow: hidden; padding: 0 0 32px; background: #fff; }
-  .carousel-wrapper { position: relative; margin-bottom: 0; }
+  .carousel-wrapper { position: relative; margin: 0 -20px; overflow: hidden; }
   .carousel-container { overflow: hidden; border-radius: var(--radius-lg); }
   .carousel-container:active { cursor: grabbing; }
   .carousel-track {
@@ -339,7 +339,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .badge-result  { background: var(--green); color: #fff; }
   
   @media (min-width: 560px) { .t-slide { min-width: 100%; } }
-  @media (min-width: 700px) { .t-slide { min-width: 100%; } }
+  @media (min-width: 700px) { .t-slide { min-width: 100%; } .carousel-wrapper { margin: 0 -32px; } }
 
   @media (min-width: 560px) {
     .carousel-slide { min-width: 68%; }
@@ -417,7 +417,6 @@ Check if Your Hair is Suitable
 <p style="color:var(--text-mid);font-size:0.9rem;margin-top:8px;">Swipe to see real results from our clients.</p>
 </div>
 </div>
-<div style="padding:0 20px 32px;">
 <div class="carousel-wrapper" id="tWrapper">
 <div class="carousel-container" id="tCarousel">
 <div class="carousel-track" id="tCarouselTrack">
@@ -435,8 +434,7 @@ Check if Your Hair is Suitable
 <button class="carousel-btn" id="tPrevBtn" aria-label="Previous">&#8249;</button>
 <button class="carousel-btn" id="tNextBtn" aria-label="Next">&#8250;</button>
 </div>
-<div class="carousel-dots" id="tCarouselDots"></div>
-</div>
+<div class="carousel-dots" id="tCarouselDots" style="padding:0 20px;"></div>
 </div>
 <div style="text-align:center;padding:0 20px 8px;">
 <a class="btn btn--wa" href="https://wa.me/971522556307?text=Hi,%20I%20saw%20your%20perm%20transformations%20and%20want%20to%20know%20more" onclick="fbq('track', 'Lead', {content_name: 'Perming'});" data-event="click_whatsapp_transformations" style="display:inline-flex;">

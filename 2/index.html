@@ -185,14 +185,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .open-now-hero .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; flex-shrink: 0; animation: pulse-subtle 2.5s ease-in-out infinite; position: relative; top: -1px; }
     .open-now-hero.closed { color: var(--text-muted); }
     .open-now-hero.closed .dot { background: #9ca3af; animation: none; }
-    .hero-video { position: relative; margin: 0 auto 26px; border-radius: var(--radius-lg); overflow: hidden; background: #e0ddd8; aspect-ratio: 3 / 4; max-width: 330px; }
+    .hero-video { position: relative; margin: 22px auto 26px; border-radius: var(--radius-lg); overflow: hidden; background: #1a1a1a; aspect-ratio: 9 / 16; max-width: 290px; width: 100%; }
     .hero-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .hero-video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.25) 100%); pointer-events: none; }
     .img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--text-subtle); font-size: 0.72rem; text-align: center; padding: 10px; }
     .img-placeholder svg { width: 26px; height: 26px; opacity: 0.35; }
     .hero-ctas { display: flex; flex-direction: column; gap: 10px; }
     @media (min-width: 480px) { .hero-ctas { flex-direction: row; flex-wrap: wrap; } }
-    @media (min-width: 700px) { .hero-video { max-width: 380px; } }
+    @media (min-width: 900px) {
+      .hero-inner { max-width: 1040px; display: grid; grid-template-columns: minmax(0,1fr) 320px; column-gap: 56px; align-items: center; }
+      .hero-video { margin: 0; max-width: 320px; }
+    }
     .hero-seo { font-size: 0.8rem; color: var(--text-subtle); margin-top: 18px; }
 
     /* === RATING STRIP === */
@@ -529,6 +532,7 @@ Book Now
 </header>
 <section id="hero">
 <div class="hero-inner">
+<div class="hero-copy">
 <div class="open-now-hero" id="openStatusHero">
 <span class="dot"></span><span id="openTextHero">Open Now</span>
 </div>
@@ -553,13 +557,14 @@ Book Now
 Book Now
 </a>
 </div>
+<p class="hero-seo">Your local barber in Oud Metha. Walk in today for haircuts, beard trims and men's grooming.</p>
+</div>
 <div class="hero-video">
 <video autoplay="" loop="" muted="" playsinline="" preload="metadata" poster="/images/hero-poster.webp" aria-label="Inside King Styling Gents Salon in Oud Metha">
 <source src="/images/hero.mp4" type="video/mp4"/>
 <img alt="King Styling Gents Salon in Oud Metha" src="/images/hero-poster.webp"/>
 </video>
 </div>
-<p class="hero-seo">Your local barber in Oud Metha. Walk in today for haircuts, beard trims and men's grooming.</p>
 </div>
 </section>
 <section class="reviews-section">

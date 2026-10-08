@@ -185,20 +185,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .open-now-hero .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; flex-shrink: 0; animation: pulse-subtle 2.5s ease-in-out infinite; position: relative; top: -1px; }
     .open-now-hero.closed { color: var(--text-muted); }
     .open-now-hero.closed .dot { background: #9ca3af; animation: none; }
-    .hero-images { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 26px; border-radius: var(--radius-lg); overflow: hidden; }
-    .hero-img { background: #e0ddd8; overflow: hidden; }
-    .hero-img:first-child { grid-column: 1 / -1; height: 200px; }
-    .hero-img:not(:first-child) { height: 128px; }
-    .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-video { position: relative; margin-bottom: 26px; border-radius: var(--radius-lg); overflow: hidden; background: #e0ddd8; height: 280px; }
+    .hero-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.25) 100%); pointer-events: none; }
     .img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--text-subtle); font-size: 0.72rem; text-align: center; padding: 10px; }
     .img-placeholder svg { width: 26px; height: 26px; opacity: 0.35; }
     .hero-ctas { display: flex; flex-direction: column; gap: 10px; }
     @media (min-width: 480px) { .hero-ctas { flex-direction: row; flex-wrap: wrap; } }
-    @media (min-width: 700px) {
-      .hero-images { grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 220px; }
-      .hero-img:first-child { grid-column: 1; height: 220px; }
-      .hero-img:not(:first-child) { height: 220px; }
-    }
+    @media (min-width: 700px) { .hero-video { height: 360px; } }
     .hero-seo { font-size: 0.8rem; color: var(--text-subtle); margin-top: 18px; }
 
     /* === RATING STRIP === */
@@ -376,6 +370,97 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .rv-arrow { background: none; border: 1px solid #dadada; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); font-size: 1rem; transition: border-color 0.15s; }
     .rv-arrow:hover { border-color: var(--green); color: var(--green); }
 
+
+    /* === BARBERS === */
+    .barbers-section { background: var(--bg); }
+    .bb-list { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .bb-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px; display: flex; flex-direction: column; gap: 16px; }
+    .bb-top { display: flex; flex-direction: column; gap: 18px; }
+    .bb-id { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px 16px; align-items: start; }
+    .bb-portrait { width: 112px; height: 112px; border-radius: var(--radius); overflow: hidden; background: #e0ddd8; }
+    .bb-portrait img { width: 100%; height: 100%; object-fit: cover; }
+    .bb-info { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .bb-name { font-family: 'Cardo', serif; font-size: 1.4rem; line-height: 1.1; color: var(--green); font-weight: 700; }
+    .bb-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .bb-chip { background: #eef2ef; color: var(--green); font-size: 0.8rem; font-weight: 500; padding: 4px 10px; border-radius: 100px; line-height: 1.3; }
+    .bb-lang { font-size: 0.85rem; color: var(--text-muted); }
+    .bb-book { grid-column: 1 / -1; min-height: 48px; }
+    .bb-work { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+    .bb-work-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .bb-work-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange-dark); }
+    .bb-hint { font-size: 0.8rem; color: var(--text-muted); }
+    .bb-arrows { display: none; gap: 8px; }
+    .bb-arrow { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-dark); background: #fff; color: var(--green); font-size: 1.3rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0 0 2px; }
+    .bb-arrow:hover { border-color: var(--green); }
+    .bb-scroller { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 8px; scrollbar-width: thin; }
+    .bb-scroller:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .bb-tile { flex: 0 0 auto; width: 180px; height: 240px; scroll-snap-align: start; position: relative; border-radius: var(--radius); overflow: hidden; background: #e0ddd8; }
+    .bb-tile img { width: 100%; height: 100%; object-fit: cover; }
+    .bb-style { position: absolute; left: 8px; bottom: 8px; background: rgba(33,45,39,0.88); color: #fff; font-size: 0.75rem; font-weight: 500; padding: 3px 9px; border-radius: 100px; }
+    .bb-ph { background: repeating-linear-gradient(135deg, #e6e2dc 0 12px, #ece8e2 12px 24px); display: flex; align-items: center; justify-content: center; text-align: center; color: #55524e; font-size: 0.8rem; padding: 8px; }
+    @media (min-width: 700px) {
+      .bb-list { gap: 24px; }
+      .bb-card { padding: 24px; gap: 20px; }
+      .bb-top { flex-direction: row; gap: 28px; align-items: stretch; }
+      .bb-id { display: flex; flex-direction: column; flex: 0 0 240px; gap: 14px; }
+      .bb-portrait { width: 240px; height: 240px; }
+      .bb-name { font-size: 1.6rem; }
+      .bb-work { flex: 1 1 0; }
+      .bb-tile { width: 240px; height: 320px; }
+    }
+    @media (hover: hover) and (min-width: 700px) {
+      .bb-arrows { display: flex; }
+      .bb-hint { display: none; }
+    }
+
+    /* === PHOTO STRIP (Why Customers Choose Us) === */
+    .pc-wrap { margin-bottom: 24px; display: flex; flex-direction: column; gap: 10px; }
+    .pc-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .pc-scroller { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 8px; scrollbar-width: thin; }
+    .pc-scroller:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+    .bb-role { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange-dark); }
+
+    /* === REVIEW CARDS (photo on top, review underneath) — used in the reviews carousel and inside each team card === */
+    .rc-card { flex: 0 0 auto; width: 260px; scroll-snap-align: start; margin: 0; display: flex; flex-direction: column; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+    .rc-photo { position: relative; aspect-ratio: 4 / 3; background: #e0ddd8; overflow: hidden; }
+    .rc-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .rc-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .rc-stars { display: flex; gap: 2px; }
+    .rc-quote { font-size: 0.9rem; line-height: 1.5; color: var(--text-mid); display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+    .rc-who { font-size: 0.78rem; color: var(--text-muted); margin-top: auto; }
+    @media (min-width: 700px) { .rc-card { width: 300px; } }
+    /* team card: five-star pill + review row (infinite, arrows on desktop) */
+    .bb-pill { grid-column: 1 / -1; justify-self: start; align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 4px 11px 4px 9px; font-size: 0.8rem; font-weight: 600; color: var(--green); line-height: 1.3; max-width: 100%; }
+    .bb-pill svg { flex: 0 0 auto; }
+    /* Ralph's card: a calm, cool tint (not orange) so it reads as a different role without shouting */
+    .bb-card--spec { background: #f3f6f4; border-color: #dbe3de; }
+    .bb-card--spec .bb-chip { background: #e1e9e4; }
+    .bb-card--spec .bb-pill { border-color: #dbe3de; }
+    .bb-card--spec .bb-rcard { background: #e9efec; }
+    .bb-scroller, .pc-scroller, .bb-rscroller, .st-scroller { position: relative; }
+    .bb-rwrap { position: relative; }
+    .bb-rscroller { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 6px; scrollbar-width: thin; }
+    .bb-rscroller:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .bb-rcard { flex: 0 0 85%; scroll-snap-align: start; background: var(--bg); border-radius: var(--radius); padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+    .bb-rcard .rc-quote { -webkit-line-clamp: 7; }
+    .bb-rarrow { display: none; position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .bb-rarrow--prev { left: 6px; } .bb-rarrow--next { right: 6px; }
+    @media (min-width: 700px) { .bb-rcard { flex: 0 0 300px; } }
+    @media (hover: hover) and (min-width: 700px) { .bb-rarrow { display: flex; } }
+    /* styles section */
+    .styles-section { background: #fff; }
+    .st-scroller { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 8px; scrollbar-width: thin; }
+    .st-scroller:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .st-card { flex: 0 0 auto; width: 220px; scroll-snap-align: start; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; }
+    .st-photo { aspect-ratio: 4 / 5; position: relative; background: #e0ddd8; overflow: hidden; }
+    .st-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .st-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+    .st-name { font-family: 'Cardo', serif; font-size: 1.1rem; line-height: 1.15; color: var(--green); font-weight: 700; }
+    .st-desc { font-size: 0.85rem; line-height: 1.45; color: var(--text-muted); }
+    .st-meta { margin-top: auto; padding-top: 6px; font-size: 0.82rem; font-weight: 700; color: var(--orange-dark); }
+    .st-link { font-size: 0.82rem; font-weight: 700; color: var(--green); text-decoration: underline; text-underline-offset: 2px; }
+    @media (min-width: 700px) { .st-card { width: 240px; } }
   </style>
 </head>
 <body>
@@ -462,16 +547,11 @@ Book Now
 </div>
 </div>
 <p class="hero-subtitle">Haircuts from <span style="color:var(--orange);">AED 40</span> · Beard trims, facials and more</p>
-<div class="hero-images">
-<div class="hero-img">
-<img alt="King Styling Gents Salon interior" src="/images/hero1_store_interior_empty.jpg"/>
-</div>
-<div class="hero-img">
-<img alt="Precision fade haircut" src="/images/hero2_haircutphoto.jpg"/>
-</div>
-<div class="hero-img">
-<img alt="Happy customer" src="/images/hero3_happycustomer.jpg"/>
-</div>
+<div class="hero-video">
+<video autoplay="" loop="" muted="" playsinline="" preload="metadata" poster="/images/hero-poster.webp" aria-label="Inside King Styling Gents Salon in Oud Metha">
+<source src="/images/hero.mp4" type="video/mp4"/>
+<img alt="King Styling Gents Salon in Oud Metha" src="/images/hero-poster.webp"/>
+</video>
 </div>
 <div class="hero-ctas">
 <a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="hero-book" rel="noopener" target="_blank">
@@ -500,76 +580,309 @@ Book Now
 <div class="gm-verified">Verified Google Reviews</div>
 </div>
 </a>
-<div class="rv-outer" id="rvOuter">
-<div class="rv-track" id="rvTrack">
-<div class="rv-card">
-<div class="rv-top">
-<div class="rv-avatar">P</div>
-<div>
-<div class="rv-name">Punit</div>
-<div class="rv-stars">★★★★★</div>
+<div class="pc-wrap">
+<div class="pc-head">
+<span class="bb-work-label">Recent reviews</span>
+<span class="bb-hint">Swipe →</span>
+<div class="bb-arrows">
+<button aria-label="Previous reviews" class="bb-arrow" data-dir="prev" type="button">‹</button>
+<button aria-label="Next reviews" class="bb-arrow" data-dir="next" type="button">›</button>
 </div>
 </div>
-<p class="rv-text">Best gents barber in Oud Metha. Clean place and professional team.</p>
-</div>
-<div class="rv-card">
-<div class="rv-top">
-<div class="rv-avatar">S</div>
-<div>
-<div class="rv-name">Sanketh</div>
-<div class="rv-stars">★★★★★</div>
-</div>
-</div>
-<p class="rv-text">Great haircut and beard trim. Highly recommend for anyone in Oud Metha.</p>
-</div>
-<div class="rv-card">
-<div class="rv-top">
-<div class="rv-avatar">M</div>
-<div>
-<div class="rv-name">Mohammed</div>
-<div class="rv-stars">★★★★★</div>
-</div>
-</div>
-<p class="rv-text">Very convenient for nearby offices. Quick service and good prices.</p>
-</div>
-<div class="rv-card">
-<div class="rv-top">
-<div class="rv-avatar">R</div>
-<div>
-<div class="rv-name">Rahul</div>
-<div class="rv-stars">★★★★★</div>
-</div>
-</div>
-<p class="rv-text">Good mani pedi and facial. Friendly staff and no waiting time.</p>
-</div>
-<div class="rv-card">
-<div class="rv-top">
-<div class="rv-avatar">A</div>
-<div>
-<div class="rv-name">Ahmed</div>
-<div class="rv-stars">★★★★★</div>
-</div>
-</div>
-<p class="rv-text">Walk-in, no booking needed. Got a clean fade and beard shape. Fast service.</p>
-</div>
-<div class="rv-card">
-<div class="rv-top">
-<div class="rv-avatar">A</div>
-<div>
-<div class="rv-name">Arjun</div>
-<div class="rv-stars">★★★★★</div>
-</div>
-</div>
-<p class="rv-text">Been coming here for months. Consistent quality every time.</p>
+<div aria-label="Recent Google reviews" class="pc-scroller" role="region" tabindex="0">
+<figure class="rc-card">
+<div class="rc-photo"><img alt="Customer after his haircut at King Styling" height="225" loading="lazy" src="/images/review1.webp" width="300"/><span class="bb-style">Fresh cut, happy customer</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“If you're looking for a barber who actually understands hair texture and head shape, this is the spot. A true master of the craft. …”</p>
+<span class="rc-who">Atif · Google review</span>
+</figcaption>
+</figure>
+<figure class="rc-card">
+<div class="rc-photo"><img alt="Barbers at work inside King Styling Gents Salon" height="225" loading="lazy" src="/images/review3.webp" width="300"/><span class="bb-style">Inside the salon</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“Amazing experience! Professional staff, clean environment, and perfect haircut. Exactly what I wanted. Highly recommended!”</p>
+<span class="rc-who">Naveed · Google review</span>
+</figcaption>
+</figure>
+<figure class="rc-card">
+<div class="rc-photo"><img alt="Complimentary coffee served at King Styling" height="225" loading="lazy" src="/images/review5.webp" width="300"/><span class="bb-style">Coffee on us</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“Fantastic salon and service. First time I visited, they took their time, gave a beverage and offered great services. Thanks guys!”</p>
+<span class="rc-who">Sofiène · Google review</span>
+</figcaption>
+</figure>
+<figure class="rc-card">
+<div class="rc-photo"><img alt="King Styling Gents Salon storefront in Oud Metha" height="225" loading="lazy" src="/images/review2.webp" width="300"/><span class="bb-style">Free parking outside</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“Great team and service. Also the location is very convenient with free parking directly outside the store.”</p>
+<span class="rc-who">Mohd · Google review</span>
+</figcaption>
+</figure>
+<figure class="rc-card">
+<div class="rc-photo"><img alt="A King Styling barber with a customer" height="225" loading="lazy" src="/images/review4.webp" width="300"/><span class="bb-style">Our team</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“Excellent haircut! The atmosphere is really pleasant, everything is very clean, and the service is top-notch. …”</p>
+<span class="rc-who">Halil · Google review</span>
+</figcaption>
+</figure>
+<figure class="rc-card">
+<div class="rc-photo"><img alt="Jovel blow-drying a customer at King Styling" height="225" loading="lazy" src="/images/jovel2.webp" width="300"/><span class="bb-style">Finishing touches</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“My favourite barber in Dubai, state-of-the-art service. Clean location, friendly staff and very fairly priced!”</p>
+<span class="rc-who">Ammar · Google review</span>
+</figcaption>
+</figure>
 </div>
 </div>
-</div>
-<div class="rv-nav" id="rvNav"></div>
 <div style="text-align:center;margin-top:24px;">
 <a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="reviews-book" rel="noopener" target="_blank">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
 Book Now
 </a>
+</div>
+</div>
+</section>
+<section class="styles-section" id="styles">
+<div class="container--wide">
+<div class="container">
+<div class="section-header">
+<span class="label">Find Your Cut</span>
+<h2>Haircuts and styles we do</h2>
+<p>Not sure what to ask for? Show your barber a photo, or ask what suits your face and hair.</p>
+</div>
+</div>
+<div class="bb-list">
+<div class="pc-wrap">
+<div class="pc-head">
+<span class="bb-work-label">Popular cuts</span>
+<span class="bb-hint">Swipe →</span>
+<div class="bb-arrows">
+<button aria-label="Previous styles" class="bb-arrow" data-dir="prev" type="button">‹</button>
+<button aria-label="Next styles" class="bb-arrow" data-dir="next" type="button">›</button>
+</div>
+</div>
+<div aria-label="Haircut styles" class="st-scroller" role="region" tabindex="0">
+<article class="st-card">
+<div class="st-photo"><img alt="Taper haircut at King Styling" height="300" loading="lazy" src="/images/styles-taper.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Tapers</h3><p class="st-desc">Clean, blended sides that grow out neatly.</p><span class="st-meta">From AED 40</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Buzz cut and skin fade at King Styling" height="300" loading="lazy" src="/images/styles-buzz-cut.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Buzz cuts &amp; skin fades</h3><p class="st-desc">Short, sharp and easy to maintain.</p><span class="st-meta">From AED 40</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Scissor cut with slick back at King Styling" height="300" loading="lazy" src="/images/styles-scissor-cut-and-slickback.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Scissor cut &amp; slick-back</h3><p class="st-desc">Length kept on top, scissor-shaped and styled back.</p><span class="st-meta">From AED 40</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Textured haircut at King Styling" height="300" loading="lazy" src="/images/styles-textured.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Textured &amp; quiff</h3><p class="st-desc">Volume and movement on top, tight on the sides.</p><span class="st-meta">From AED 40</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Beard trim and fade at King Styling" height="300" loading="lazy" src="/images/styles-beard-fade.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Beard trim &amp; shape</h3><p class="st-desc">Trim, line-up and hot-towel shave.</p><span class="st-meta">AED 30 · 20 min</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Men’s perm result" height="300" loading="lazy" src="/images/styles-perming.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Men’s perm</h3><p class="st-desc">Natural curls and volume, with a free haircut offer.</p><span class="st-meta">From AED 300 · about 2 hrs</span><a class="st-link" data-event="click_perm_details" href="/perming.html" id="styles-perm">See perm details →</a></div>
+</article>
+</div>
+</div>
+<div style="text-align:center;">
+<a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="styles-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book Now
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="barbers-section" id="barbers">
+<div class="container--wide">
+<div class="container">
+<div class="section-header">
+<span class="label">Our Team</span>
+<h2>Meet the team</h2>
+<p>See their recent work, read what customers say, then book with the person you like.</p>
+</div>
+</div>
+<div class="bb-list">
+<article class="bb-card">
+<div class="bb-top">
+<div class="bb-id">
+<div class="bb-portrait"><img alt="Uvaish, barber at King Styling Gents Salon" height="240" src="/images/team-uvaish.webp" width="240"/></div>
+<div class="bb-info">
+<span class="bb-role">Barber</span>
+<h3 class="bb-name">Uvaish</h3>
+<div class="bb-chips"><span class="bb-chip">Fades</span><span class="bb-chip">Beard trim</span></div>
+
+<p class="bb-lang">Speaks: English · Hindi</p>
+</div>
+<span class="bb-pill" title="Five-star Google reviews that mention Uvaish"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><span>25+ five-star Google reviews</span></span>
+<a class="btn btn--book btn--full cta-book bb-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076&amp;staff=79265120-789e-45cf-8aaf-95d036e650e9" id="uvaish-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book with Uvaish
+</a>
+</div>
+<div class="bb-work">
+<div class="bb-work-head">
+<span class="bb-work-label">Recent work</span>
+<span class="bb-hint">Swipe →</span>
+<div class="bb-arrows">
+<button aria-label="Previous photos" class="bb-arrow" data-dir="prev" type="button">‹</button>
+<button aria-label="Next photos" class="bb-arrow" data-dir="next" type="button">›</button>
+</div>
+</div>
+<div aria-label="Recent work by Uvaish" class="bb-scroller" role="region" tabindex="0">
+<div class="bb-tile"><img alt="Taper by Uvaish" height="320" loading="lazy" src="/images/uvaish1.webp" width="240"/><span class="bb-style">Taper</span></div><div class="bb-tile"><img alt="Cut and beard by Uvaish" height="320" loading="lazy" src="/images/uvaish2.webp" width="240"/><span class="bb-style">Cut &amp; beard</span></div><div class="bb-tile"><img alt="Textured crop by Uvaish" height="320" loading="lazy" src="/images/uvaish3.webp" width="240"/><span class="bb-style">Textured crop</span></div><div class="bb-tile"><img alt="Slick back by Uvaish" height="320" loading="lazy" src="/images/uvaish4.webp" width="240"/><span class="bb-style">Slick back</span></div>
+</div>
+</div>
+</div>
+<div class="bb-rwrap">
+<button aria-label="Previous reviews" class="bb-arrow bb-rarrow bb-rarrow--prev" data-dir="prev" type="button">‹</button>
+<div aria-label="Google reviews for Uvaish" class="bb-rscroller" role="region" tabindex="0">
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Genuine recommendation for sure. Uvaish, the barber, is an absolutely talented artist. Does not rush the cut …”</p><span class="rc-who">Omar · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Fantastic salon, clean and tidy. Mr. Uvaish is fabulous, he always does an amazing job. Highly recommend.”</p><span class="rc-who">Hisham · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Had a great haircut. Have been going here regularly. Ask for Uvaish, he’s the man.”</p><span class="rc-who">Keith · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Uvaish you made my first time experience truly amazing. You were really humble and provided a very good service.”</p><span class="rc-who">Syed · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Amazing service and Uvaish does amazing styling and is extremely attentive about the client needs and preferences. Never disappoints! …”</p><span class="rc-who">Ruchir · Google review</span></div>
+</div>
+<button aria-label="Next reviews" class="bb-arrow bb-rarrow bb-rarrow--next" data-dir="next" type="button">›</button>
+</div>
+</article>
+<article class="bb-card">
+<div class="bb-top">
+<div class="bb-id">
+<div class="bb-portrait"><img alt="Jamal, barber at King Styling Gents Salon" height="240" src="/images/team-jamal.webp" width="240"/></div>
+<div class="bb-info">
+<span class="bb-role">Barber</span>
+<h3 class="bb-name">Jamal</h3>
+<div class="bb-chips"><span class="bb-chip">Scissor cuts</span><span class="bb-chip">Perming</span><span class="bb-chip">Anti-dandruff treatment</span><span class="bb-chip">Beard trim</span></div>
+
+<p class="bb-lang">Speaks: English · Hindi · Punjabi</p>
+</div>
+<a class="btn btn--book btn--full cta-book bb-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076&amp;staff=3759ada3-5797-4036-b4ce-2429c5b93585" id="jamal-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book with Jamal
+</a>
+</div>
+<div class="bb-work">
+<div class="bb-work-head">
+<span class="bb-work-label">Recent work</span>
+<span class="bb-hint">Swipe →</span>
+<div class="bb-arrows">
+<button aria-label="Previous photos" class="bb-arrow" data-dir="prev" type="button">‹</button>
+<button aria-label="Next photos" class="bb-arrow" data-dir="next" type="button">›</button>
+</div>
+</div>
+<div aria-label="Recent work by Jamal" class="bb-scroller" role="region" tabindex="0">
+<div class="bb-tile"><img alt="Slick back by Jamal" height="320" loading="lazy" src="/images/jamal1.webp" width="240"/><span class="bb-style">Slick back</span></div><div class="bb-tile"><img alt="Quiff by Jamal" height="320" loading="lazy" src="/images/jamal2.webp" width="240"/><span class="bb-style">Quiff</span></div><div class="bb-tile"><img alt="Curls by Jamal" height="320" loading="lazy" src="/images/jamal3.webp" width="240"/><span class="bb-style">Curls</span></div><div class="bb-tile"><img alt="Curls and taper by Jamal" height="320" loading="lazy" src="/images/jamal4.webp" width="240"/><span class="bb-style">Curls &amp; taper</span></div>
+</div>
+</div>
+</div>
+<div class="bb-rwrap">
+<button aria-label="Previous reviews" class="bb-arrow bb-rarrow bb-rarrow--prev" data-dir="prev" type="button">‹</button>
+<div aria-label="Google reviews for Jamal" class="bb-rscroller" role="region" tabindex="0">
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Jamal did an EXCELLENT job! One of the best haircuts I ever had around the world. Smooth, precise, clean and with a scalp massage at the end. …”</p><span class="rc-who">Hector · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“I would like to thank Mr Jamal for giving me such an amazing look. I really loved the way you work patiently. This is my second time I got a haircut at this shop and I came specially from Abu Dhabi …”</p><span class="rc-who">Deepanshu · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Jamal was great and gave my 15-year-old a fantastic haircut. The salon is also very conveniently located, just a short walk from his school. …”</p><span class="rc-who">Stéphanie · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“First time here and Jamal gave me a treat, haircut was clean and his services were excellent. I’m definitely coming back. …”</p><span class="rc-who">Milean · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Jamal Sahaab is a very professional hair stylist with true talent and skill.”</p><span class="rc-who">Ayyan · Google review</span></div>
+</div>
+<button aria-label="Next reviews" class="bb-arrow bb-rarrow bb-rarrow--next" data-dir="next" type="button">›</button>
+</div>
+</article>
+<article class="bb-card">
+<div class="bb-top">
+<div class="bb-id">
+<div class="bb-portrait"><img alt="Jovel, barber at King Styling Gents Salon" height="240" src="/images/team-jovel.webp" width="240"/></div>
+<div class="bb-info">
+<span class="bb-role">Barber</span>
+<h3 class="bb-name">Jovel</h3>
+<div class="bb-chips"><span class="bb-chip">Taper fades</span><span class="bb-chip">Buzz cuts</span><span class="bb-chip">Beard trim</span></div>
+
+<p class="bb-lang">Speaks: English · Tagalog</p>
+</div>
+<span class="bb-pill" title="Five-star Google reviews that mention Jovel"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><span>55+ five-star Google reviews</span></span>
+<a class="btn btn--book btn--full cta-book bb-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076&amp;staff=9adeae09-6ed8-4d41-acc1-24ae808b62e9" id="jovel-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book with Jovel
+</a>
+</div>
+<div class="bb-work">
+<div class="bb-work-head">
+<span class="bb-work-label">Recent work</span>
+<span class="bb-hint">Swipe →</span>
+<div class="bb-arrows">
+<button aria-label="Previous photos" class="bb-arrow" data-dir="prev" type="button">‹</button>
+<button aria-label="Next photos" class="bb-arrow" data-dir="next" type="button">›</button>
+</div>
+</div>
+<div aria-label="Recent work by Jovel" class="bb-scroller" role="region" tabindex="0">
+<div class="bb-tile"><img alt="Textured cut by Jovel" height="320" loading="lazy" src="/images/jovel1.webp" width="240"/><span class="bb-style">Textured cut</span></div><div class="bb-tile"><img alt="Blow-dry finish by Jovel" height="320" loading="lazy" src="/images/jovel2.webp" width="240"/><span class="bb-style">Blow-dry finish</span></div><div class="bb-tile"><img alt="Pompadour by Jovel" height="320" loading="lazy" src="/images/jovel3.webp" width="240"/><span class="bb-style">Pompadour</span></div><div class="bb-tile"><img alt="Back taper by Jovel" height="320" loading="lazy" src="/images/jovel4.webp" width="240"/><span class="bb-style">Back taper</span></div>
+</div>
+</div>
+</div>
+<div class="bb-rwrap">
+<button aria-label="Previous reviews" class="bb-arrow bb-rarrow bb-rarrow--prev" data-dir="prev" type="button">‹</button>
+<div aria-label="Google reviews for Jovel" class="bb-rscroller" role="region" tabindex="0">
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Very satisfied with my haircut, the first one I’ve had in 7 months. Jovel did an incredible job, he was very patient and listened to my specifications to the tee. Great price too, would highly recommend a visit!”</p><span class="rc-who">Vihan · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Got a tapered cut and fade from Jovel - absolutely flawless work. He handled my natural curly hair with superb attention to detail, stayed focused, efficient, and delivered exactly what I asked for. Highly recommended.”</p><span class="rc-who">Yas · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“My son had a kids’ cut, and I went for a razor cut. Huge thanks to Jovel for being so patient and making my little one feel comfortable throughout the entire session. …”</p><span class="rc-who">Phillip · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Great experience! Jovel was skilled, friendly, and gave me exactly the cut I wanted. Highly recommend.”</p><span class="rc-who">Rekha · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Was attended by Jovel and he did a great job with my hair especially with my beard. The place is clean and the staff are very hygienic.”</p><span class="rc-who">Felicisimo · Google review</span></div>
+</div>
+<button aria-label="Next reviews" class="bb-arrow bb-rarrow bb-rarrow--next" data-dir="next" type="button">›</button>
+</div>
+</article>
+<article class="bb-card bb-card--spec">
+<div class="bb-top">
+<div class="bb-id">
+<div class="bb-portrait"><img alt="Ralph, barber at King Styling Gents Salon" height="240" src="/images/team-ralph.webp" width="240"/></div>
+<div class="bb-info">
+<span class="bb-role">Nails &amp; Facials Specialist</span>
+<h3 class="bb-name">Ralph (Raffy)</h3>
+<div class="bb-chips"><span class="bb-chip">Manicure</span><span class="bb-chip">Pedicure</span><span class="bb-chip">Facials</span></div>
+<p class="bb-lang">Speaks: English · Tagalog</p>
+</div>
+<span class="bb-pill" title="Five-star Google reviews that mention Ralph"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><span>55+ five-star Google reviews</span></span>
+<a class="btn btn--book btn--full cta-book bb-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076&amp;staff=efe5c4c8-2c67-4392-b802-c55345f9f8ba" id="ralph-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book with Ralph
+</a>
+</div>
+<div class="bb-work">
+<div class="bb-work-head">
+<span class="bb-work-label">Recent work</span>
+<span class="bb-hint">Swipe →</span>
+<div class="bb-arrows">
+<button aria-label="Previous photos" class="bb-arrow" data-dir="prev" type="button">‹</button>
+<button aria-label="Next photos" class="bb-arrow" data-dir="next" type="button">›</button>
+</div>
+</div>
+<div aria-label="Recent work by Ralph (Raffy)" class="bb-scroller" role="region" tabindex="0">
+<div class="bb-tile"><img alt="Manicure by Ralph" height="320" loading="lazy" src="/images/ralph1.webp" width="240"/><span class="bb-style">Manicure</span></div><div class="bb-tile"><img alt="Nail filing by Ralph" height="320" loading="lazy" src="/images/ralph2.webp" width="240"/><span class="bb-style">Manicure</span></div><div class="bb-tile"><img alt="Finished manicure by Ralph" height="320" loading="lazy" src="/images/ralph3.webp" width="240"/><span class="bb-style">Manicure</span></div><div class="bb-tile"><img alt="Pedicure at King Styling" height="320" loading="lazy" src="/images/ralph4.webp" width="240"/><span class="bb-style">Pedicure</span></div>
+</div>
+</div>
+</div>
+<div class="bb-rwrap">
+<button aria-label="Previous reviews" class="bb-arrow bb-rarrow bb-rarrow--prev" data-dir="prev" type="button">‹</button>
+<div aria-label="Google reviews for Ralph (Raffy)" class="bb-rscroller" role="region" tabindex="0">
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Best facial I’ve ever had with Raffy! My skin feels incredible. Definitely worth it! I’ll be back for sure!”</p><span class="rc-who">Ervin · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Mr. Raffy is a highly skilled and professional facialist. His attention to detail and care are outstanding, making him a top choice for facial treatments. Highly recommended!”</p><span class="rc-who">Hameed · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“I want Raffy to do my nails. He is kind and attentive to me, and very professional, facial as well. When I come back, I want him to be the one to do my service.”</p><span class="rc-who">Mary · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Very professional service, especially Raffy. The staff explained each step and made sure I was comfortable throughout. Great attention to detail.”</p><span class="rc-who">Laila · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Raffy was professional and really took the time to ensure everything was perfect. My skin feels completely rejuvenated, and the nail work is very clean and precise. Thank you, Raffy. Highly recommend!”</p><span class="rc-who">Roy · Google review</span></div>
+</div>
+<button aria-label="Next reviews" class="bb-arrow bb-rarrow bb-rarrow--next" data-dir="next" type="button">›</button>
+</div>
+</article>
 </div>
 </div>
 </section>
@@ -682,8 +995,8 @@ Book Now
 <section id="contact">
 <div class="cta-block">
 <span class="label">Ready for a fresh look?</span>
-<h2>Walk In Today — No Appointment Needed</h2>
-<p>Walk-ins welcome. No appointment needed. Open daily 10 AM – 1 AM in Oud Metha.</p>
+<h2>Book Ahead or Walk In</h2>
+<p>Book your barber and time in under a minute, or walk in and we'll fit you in. Open daily 10 AM – 1 AM in Oud Metha.</p>
 <div class="cta-buttons">
 <a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="footer-book" rel="noopener" target="_blank">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
@@ -741,6 +1054,65 @@ Book Now
 <script>
   window.dataLayer = window.dataLayer || [];
 
+  // === CAROUSELS: infinite loop (by cloning the cards) + arrow buttons. No autoplay, on purpose. ===
+  (function() {
+    var SEL = '.bb-scroller, .pc-scroller, .bb-rscroller, .st-scroller';
+    var touching = false;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function real(sc) { return Array.prototype.filter.call(sc.children, function(c) { return !c.classList.contains('is-clone'); }); }
+    function build(sc) {
+      Array.prototype.slice.call(sc.querySelectorAll(':scope > .is-clone')).forEach(function(c) { c.remove(); });
+      sc.classList.remove('is-looping'); sc.__W = 0;
+      var items = real(sc);
+      items.forEach(function(c, i) { c.setAttribute('data-i', i); });
+      if (items.length < 2) return;
+      var gap = parseFloat(getComputedStyle(sc).columnGap) || 0;
+      var W = items.reduce(function(sum, c) { return sum + c.getBoundingClientRect().width + gap; }, 0);
+      if (W <= sc.clientWidth + 8) return;            // everything already fits: nothing to loop
+      var before = document.createDocumentFragment(), after = document.createDocumentFragment();
+      items.forEach(function(c) {
+        var a = c.cloneNode(true), b = c.cloneNode(true);
+        [a, b].forEach(function(x) { x.classList.add('is-clone'); x.setAttribute('aria-hidden', 'true'); });
+        before.appendChild(a); after.appendChild(b);
+      });
+      sc.insertBefore(before, sc.firstChild); sc.appendChild(after);
+      sc.classList.add('is-looping');
+      var firstAfter = sc.querySelectorAll(':scope > .is-clone')[items.length];
+      sc.__start = items[0].offsetLeft;
+      sc.__W = firstAfter.offsetLeft - items[0].offsetLeft;
+      sc.scrollLeft = sc.__start;
+    }
+    // When scrolling has settled inside a cloned copy, jump (invisibly) to the identical spot in the real cards.
+    function recenter(sc) {
+      if (!sc.__W) return;
+      var x = sc.scrollLeft, s = sc.__start, W = sc.__W;
+      if (x >= s + W - 1) sc.scrollLeft = x - W; else if (x < s - 1) sc.scrollLeft = x + W;
+    }
+    function watch(sc) {
+      var t;
+      sc.__arm = function() { clearTimeout(t); t = setTimeout(function() { if (touching) sc.__arm(); else recenter(sc); }, 150); };
+      sc.addEventListener('scroll', sc.__arm, { passive: true });
+    }
+    function all() { return document.querySelectorAll(SEL); }
+    all().forEach(function(sc) { build(sc); watch(sc); });
+    window.addEventListener('load', function() { all().forEach(function(sc) { if (!sc.classList.contains('is-looping')) build(sc); }); });
+    var lastW = window.innerWidth;
+    window.addEventListener('resize', function() { if (window.innerWidth === lastW) return; lastW = window.innerWidth; all().forEach(build); });
+    function release() { touching = false; all().forEach(function(sc) { if (sc.__arm) sc.__arm(); }); }
+    document.addEventListener('touchstart', function() { touching = true; }, { passive: true });
+    document.addEventListener('touchend', release, { passive: true });
+    document.addEventListener('touchcancel', release, { passive: true });
+    document.querySelectorAll('.bb-arrow').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var sc = btn.closest('.bb-work, .pc-wrap, .bb-rwrap').querySelector(SEL);
+        var gap = parseFloat(getComputedStyle(sc).columnGap) || 12;
+        var one = (sc.firstElementChild ? sc.firstElementChild.offsetWidth : 240) + gap;
+        var step = sc.classList.contains('bb-rscroller') ? one : one * 2;
+        sc.scrollBy({ left: btn.getAttribute('data-dir') === 'next' ? step : -step, behavior: reduce ? 'auto' : 'smooth' });
+      });
+    });
+  })();
+
   // GTM tracking
   document.addEventListener('click', function(e) {
     const el = e.target.closest('[data-event]');
@@ -766,83 +1138,6 @@ Book Now
     }
   })();
 
-
-  // === REVIEW CAROUSEL ===
-  (function() {
-    const outer = document.getElementById('rvOuter');
-    const track = document.getElementById('rvTrack');
-    const nav = document.getElementById('rvNav');
-    if (!track || !outer) return;
-    const cards = Array.from(track.querySelectorAll('.rv-card'));
-    const total = cards.length;
-    let current = 0, autoTimer, paused = false;
-
-    function getPerView() { return window.innerWidth >= 700 ? (window.innerWidth >= 1024 ? 3 : 2) : 1; }
-
-    function setWidths() {
-      const pv = getPerView();
-      const w = (outer.offsetWidth - 12 * (pv - 1)) / pv;
-      cards.forEach(c => { c.style.width = w + 'px'; c.style.minWidth = w + 'px'; });
-    }
-
-    function buildNav() {
-      const pv = getPerView();
-      const pages = Math.ceil(total / pv);
-      nav.innerHTML = '';
-      const prev = document.createElement('button');
-      prev.className = 'rv-arrow'; prev.innerHTML = '‹';
-      prev.onclick = () => { goTo(current - pv); paused = true; setTimeout(() => paused = false, 6000); };
-      nav.appendChild(prev);
-      for (let i = 0; i < pages; i++) {
-        const d = document.createElement('button');
-        d.className = 'rv-dot' + (i === 0 ? ' active' : '');
-        d.onclick = () => { goTo(i * getPerView()); paused = true; setTimeout(() => paused = false, 6000); };
-        nav.appendChild(d);
-      }
-      const next = document.createElement('button');
-      next.className = 'rv-arrow'; next.innerHTML = '›';
-      next.onclick = () => { goTo(current + pv); paused = true; setTimeout(() => paused = false, 6000); };
-      nav.appendChild(next);
-    }
-
-    function updateDots() {
-      const pv = getPerView();
-      const page = Math.floor(current / pv);
-      nav.querySelectorAll('.rv-dot').forEach((d, i) => d.classList.toggle('active', i === page));
-    }
-
-    function goTo(idx) {
-      const pv = getPerView();
-      current = Math.max(0, Math.min(idx, total - pv));
-      const w = cards[0] ? cards[0].offsetWidth + 12 : 0;
-      track.style.transform = 'translateX(-' + (current * w) + 'px)';
-      updateDots();
-    }
-
-    function next() { const pv = getPerView(); goTo(current + pv >= total ? 0 : current + pv); }
-
-    setWidths(); buildNav(); goTo(0);
-    autoTimer = setInterval(() => { if (!paused) next(); }, 4000);
-
-    // Touch/drag
-    let ts = null;
-    outer.addEventListener('touchstart', e => { ts = e.touches[0].clientX; }, { passive: true });
-    outer.addEventListener('touchend', e => {
-      if (!ts) return;
-      const diff = ts - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) { const pv = getPerView(); diff > 0 ? goTo(current + pv) : goTo(current - pv); paused = true; setTimeout(() => paused = false, 6000); }
-      ts = null;
-    });
-    let md = null;
-    outer.addEventListener('mousedown', e => md = e.clientX);
-    outer.addEventListener('mouseup', e => {
-      if (!md) return;
-      const diff = md - e.clientX;
-      if (Math.abs(diff) > 40) { const pv = getPerView(); diff > 0 ? goTo(current + pv) : goTo(current - pv); paused = true; setTimeout(() => paused = false, 6000); }
-      md = null;
-    });
-    window.addEventListener('resize', () => { setWidths(); buildNav(); goTo(current); });
-  })();
 
   // === PRICE LIST MODAL ===
   function openPriceModal() {

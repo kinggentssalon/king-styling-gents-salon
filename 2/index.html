@@ -185,14 +185,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .open-now-hero .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; flex-shrink: 0; animation: pulse-subtle 2.5s ease-in-out infinite; position: relative; top: -1px; }
     .open-now-hero.closed { color: var(--text-muted); }
     .open-now-hero.closed .dot { background: #9ca3af; animation: none; }
-    .hero-video { position: relative; margin-bottom: 26px; border-radius: var(--radius-lg); overflow: hidden; background: #e0ddd8; height: 280px; }
+    .hero-video { position: relative; margin: 0 auto 26px; border-radius: var(--radius-lg); overflow: hidden; background: #e0ddd8; aspect-ratio: 3 / 4; max-width: 330px; }
     .hero-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .hero-video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.25) 100%); pointer-events: none; }
     .img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--text-subtle); font-size: 0.72rem; text-align: center; padding: 10px; }
     .img-placeholder svg { width: 26px; height: 26px; opacity: 0.35; }
     .hero-ctas { display: flex; flex-direction: column; gap: 10px; }
     @media (min-width: 480px) { .hero-ctas { flex-direction: row; flex-wrap: wrap; } }
-    @media (min-width: 700px) { .hero-video { height: 360px; } }
+    @media (min-width: 700px) { .hero-video { max-width: 380px; } }
     .hero-seo { font-size: 0.8rem; color: var(--text-subtle); margin-top: 18px; }
 
     /* === RATING STRIP === */
@@ -423,7 +423,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* === REVIEW CARDS (photo on top, review underneath) — used in the reviews carousel and inside each team card === */
     .rc-card { flex: 0 0 auto; width: 260px; scroll-snap-align: start; margin: 0; display: flex; flex-direction: column; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
-    .rc-photo { position: relative; aspect-ratio: 4 / 3; background: #e0ddd8; overflow: hidden; }
+    .rc-photo { position: relative; aspect-ratio: 1 / 1; background: #e0ddd8; overflow: hidden; }
     .rc-photo img { width: 100%; height: 100%; object-fit: cover; }
     .rc-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
     .rc-stars { display: flex; gap: 2px; }
@@ -453,7 +453,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .st-scroller { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 8px; scrollbar-width: thin; }
     .st-scroller:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
     .st-card { flex: 0 0 auto; width: 220px; scroll-snap-align: start; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; }
-    .st-photo { aspect-ratio: 4 / 5; position: relative; background: #e0ddd8; overflow: hidden; }
+    .st-photo { aspect-ratio: 3 / 4; position: relative; background: #e0ddd8; overflow: hidden; }
     .st-photo img { width: 100%; height: 100%; object-fit: cover; }
     .st-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
     .st-name { font-family: 'Cardo', serif; font-size: 1.1rem; line-height: 1.15; color: var(--green); font-weight: 700; }
@@ -547,17 +547,17 @@ Book Now
 </div>
 </div>
 <p class="hero-subtitle">Haircuts from <span style="color:var(--orange);">AED 40</span> · Beard trims, facials and more</p>
-<div class="hero-video">
-<video autoplay="" loop="" muted="" playsinline="" preload="metadata" poster="/images/hero-poster.webp" aria-label="Inside King Styling Gents Salon in Oud Metha">
-<source src="/images/hero.mp4" type="video/mp4"/>
-<img alt="King Styling Gents Salon in Oud Metha" src="/images/hero-poster.webp"/>
-</video>
-</div>
 <div class="hero-ctas">
 <a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="hero-book" rel="noopener" target="_blank">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
 Book Now
 </a>
+</div>
+<div class="hero-video">
+<video autoplay="" loop="" muted="" playsinline="" preload="metadata" poster="/images/hero-poster.webp" aria-label="Inside King Styling Gents Salon in Oud Metha">
+<source src="/images/hero.mp4" type="video/mp4"/>
+<img alt="King Styling Gents Salon in Oud Metha" src="/images/hero-poster.webp"/>
+</video>
 </div>
 <p class="hero-seo">Your local barber in Oud Metha. Walk in today for haircuts, beard trims and men's grooming.</p>
 </div>
@@ -631,7 +631,7 @@ Book Now
 </figcaption>
 </figure>
 <figure class="rc-card">
-<div class="rc-photo"><img alt="Jovel blow-drying a customer at King Styling" height="225" loading="lazy" src="/images/jovel2.webp" width="300"/><span class="bb-style">Finishing touches</span></div>
+<div class="rc-photo"><img alt="Jovel blow-drying a customer at King Styling" height="225" loading="lazy" src="/images/jovel2-square.webp" width="300"/><span class="bb-style">Finishing touches</span></div>
 <figcaption class="rc-body">
 <div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
 <p class="rc-quote">“My favourite barber in Dubai, state-of-the-art service. Clean location, friendly staff and very fairly priced!”</p>

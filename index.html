@@ -19,6 +19,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
 <link rel="icon" href="/favicon.ico" sizes="48x48"/>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<link rel="canonical" href="https://kingstyling.ae/"/>
 <title>Barber in Oud Metha | Haircuts from AED 40 | King Styling Gents Salon</title>
 <meta content="Walk-in barber in Oud Metha. Haircuts from AED 40. Beard trims, facials and grooming. No appointment needed." name="description"/>
 <script type="application/ld+json">
@@ -88,7 +89,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* === FLOATING BUTTONS — 3 stacked, icon-only === */
+    /* === FLOATING BAR — Call 25% | WhatsApp 25% | Book Now 50% === */
     .float-btns {
       position: fixed; bottom: 0; left: 0; right: 0;
       z-index: 1000; display: flex; flex-direction: row; gap: 10px;
@@ -96,28 +97,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       box-shadow: 0 -2px 12px rgba(0,0,0,0.1);
     }
     .float-btn {
-      flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 14px 8px; cursor: pointer; transition: background 0.15s, transform 0.1s;
+      flex: 1 1 0; min-width: 0; display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 8px; cursor: pointer; transition: filter 0.15s, transform 0.1s;
       -webkit-tap-highlight-color: transparent; border: none; text-decoration: none;
       border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
     .float-btn:hover { filter: brightness(1.05); }
     .float-btn:active { transform: scale(0.97); }
-    .float-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
-    .float-btn img { flex-shrink: 0; }
-    .float-btn-text { font-size: 0.75rem; font-weight: 600; line-height: 1.2; }
-    .float-btn--wa  { background: #25d366; color: #fff; }
-    .float-btn--call { background: var(--orange); color: #fff; }
-    .float-btn--call svg { stroke: #fff; }
-    .float-btn--maps { background: #fff; color: #1a73e8; }
+    .float-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
+    .float-btn-text { font-size: 0.95rem; font-weight: 700; line-height: 1.2; letter-spacing: 0.02em; white-space: nowrap; }
+    .float-btn--call { flex: 1 1 0; background: #e3e5e4; color: #4a524e; border: none; box-shadow: none; }
+    .float-btn--call svg { stroke: #4a524e; }
+    .float-btn--wa   { flex: 1 1 0; background: #25d366; color: #fff; }
+    .float-btn--book { flex: 2 1 0; background: var(--book); color: #fff; box-shadow: 0 4px 14px rgba(33,45,39,0.40); }
     body { padding-bottom: 80px; }
     @media (max-width: 600px) {
       .float-btns { gap: 8px; padding: 10px; }
-      .float-btn { padding: 16px 6px; gap: 6px; border-radius: 12px; }
-      .float-btn svg { width: 22px; height: 22px; }
-      .float-btn img { width: 22px !important; height: 22px !important; }
-      .float-btn-text { font-size: 0.85rem; font-weight: 700; }
+      .float-btn { padding: 16px 6px; border-radius: 12px; }
       body { padding-bottom: 90px; }
+    }
+    @media (min-width: 700px) {
+      .float-btns { padding-left: calc(50% - 300px); padding-right: calc(50% - 300px); }
     }
 
     /* === HEADER === */
@@ -139,7 +139,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-links { display: none; gap: 22px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; color: var(--text-muted); }
     .nav-links a:hover { color: var(--green); }
     .nav-cta { display: none; }
-    @media (min-width: 700px) { .nav-links { display: flex; } .nav-cta { display: flex; } }
+    @media (min-width: 700px) { .nav-cta { display: flex; } }
+    @media (min-width: 900px) { .nav-links { display: flex; } }
 
     /* === BUTTONS === */
     .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 13px 22px; border-radius: 100px; font-family: 'League Spartan', sans-serif; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.04em; cursor: pointer; border: none; transition: transform 0.15s, background 0.15s; -webkit-tap-highlight-color: transparent; white-space: nowrap; }
@@ -266,15 +267,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .price-row .price { color: var(--orange); font-weight: 700; white-space: nowrap; }
     .price-row .price .was { font-size: 0.73rem; color: var(--text-subtle); font-weight: 400; text-decoration: line-through; margin-right: 4px; }
 
-    /* === GALLERY === */
-    #gallery { background: #fff; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    @media (min-width: 560px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
-    .gallery-item { aspect-ratio: 1; background: #e0ddd8; border-radius: var(--radius); overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; cursor: pointer; }
-    .gallery-item:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); transform: translateY(-2px); }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-    .gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; color: var(--text-subtle); font-size: 0.7rem; }
-    .gallery-placeholder svg { width: 22px; height: 22px; opacity: 0.35; }
 
     /* === LOCATION === */
     #location { background: var(--bg); }
@@ -391,10 +383,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .bb-chip { background: #eef2ef; color: var(--green); font-size: 0.8rem; font-weight: 500; padding: 4px 10px; border-radius: 100px; line-height: 1.3; }
     .bb-lang { font-size: 0.85rem; color: var(--text-muted); }
     .bb-book { grid-column: 1 / -1; min-height: 48px; }
-    .bb-ctas { display: flex; flex-direction: column; gap: 8px; }
-    .bb-ctas-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
-    .bb-ctas-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .bb-ctas-row .btn { padding: 13px 10px; }
     .bb-work { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
     .bb-work-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
     .bb-work-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange-dark); }
@@ -477,13 +465,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5J7V282P"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="float-btns">
-<a aria-label="Call" class="float-btn float-btn--call cta-call" data-event="click_call" href="tel:+971522556307" id="float-call">
-<svg fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.24 1.18 2 2 0 012.24 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.6 7.49A16 16 0 0016.5 17.4l.94-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
-<span class="float-btn-text">Call us now</span>
+<a aria-label="Call us" class="float-btn float-btn--call cta-call" data-event="click_call" href="tel:+971522556307" id="float-call">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.24 1.18 2 2 0 012.24 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.6 7.49A16 16 0 0016.5 17.4l.94-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
 </a>
-<a aria-label="WhatsApp" class="float-btn float-btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="float-whatsapp" rel="noopener" target="_blank">
+<a aria-label="WhatsApp us" class="float-btn float-btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="float-whatsapp" rel="noopener" target="_blank">
 <svg fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-<span class="float-btn-text">Message us</span>
+</a>
+<a aria-label="Book now" class="float-btn float-btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="float-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+<span class="float-btn-text">Book Now</span>
 </a>
 </div>
 <header>
@@ -522,16 +512,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </div>
 <nav class="nav-links">
+<a href="#reviews">Reviews</a>
+<a href="#styles">Styles</a>
+<a href="#barbers">Barbers</a>
 <a href="#services">Services</a>
-<a href="#gallery">Gallery</a>
 <a href="#location">Location</a>
 </nav>
 <div class="header-right">
 <div class="nav-cta">
-<a class="btn btn--wa btn--sm cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="header-whatsapp" rel="noopener" target="_blank">
-<svg fill="currentColor" height="15" viewbox="0 0 24 24" width="15"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-      WhatsApp Us
-    </a>
+<a class="btn btn--book btn--sm cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="header-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book Now
+</a>
 </div>
 </div>
 </header>
@@ -557,14 +549,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <p class="hero-subtitle">Haircuts from <span style="color:var(--orange);">AED 40</span> · Beard trims, facials and more</p>
 <div class="hero-ctas">
-<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="hero-whatsapp" rel="noopener" target="_blank">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-        WhatsApp Us
-      </a>
-<a class="btn btn--orange cta-call" data-event="click_call" href="tel:+971522556307" id="hero-call">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.24 1.18 2 2 0 012.24 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.6 7.49A16 16 0 0016.5 17.4l.94-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
-        Call Now
-      </a>
+<a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="hero-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book Now
+</a>
 </div>
 <p class="hero-seo">Your local barber in Oud Metha. Walk in today for haircuts, beard trims and men's grooming.</p>
 </div>
@@ -576,7 +564,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </div>
 </section>
-<section class="reviews-section">
+<section class="reviews-section" id="reviews">
 <div class="container">
 <div class="section-header">
 <span class="label">What Customers Say</span>
@@ -655,9 +643,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </div>
 <div style="text-align:center;margin-top:24px;">
-<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="reviews-whatsapp" rel="noopener" target="_blank">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-WhatsApp Us
+<a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="reviews-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book Now
 </a>
 </div>
 </div>
@@ -709,9 +697,9 @@ WhatsApp Us
 </div>
 </div>
 <div style="text-align:center;">
-<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="styles-whatsapp" rel="noopener" target="_blank">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-WhatsApp Us
+<a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="styles-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book Now
 </a>
 </div>
 </div>
@@ -723,7 +711,7 @@ WhatsApp Us
 <div class="section-header">
 <span class="label">Our Team</span>
 <h2>Meet the team</h2>
-<p>See their recent work, read what customers say, then message the person you like.</p>
+<p>See their recent work, read what customers say, then book with the person you like.</p>
 </div>
 </div>
 <div class="bb-list">
@@ -738,16 +726,10 @@ WhatsApp Us
 
 <p class="bb-lang">Speaks: English · Hindi · Punjabi</p>
 </div>
-<div class="bb-ctas bb-book"><span class="bb-ctas-label">Book Jamal</span><div class="bb-ctas-row">
-<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20I%27d%20like%20a%20haircut%20with%20Jamal" id="jamal-whatsapp" rel="noopener" target="_blank">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-Message
+<a class="btn btn--book btn--full cta-book bb-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076&amp;staff=3759ada3-5797-4036-b4ce-2429c5b93585" id="jamal-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book with Jamal
 </a>
-<a class="btn btn--orange cta-call" data-event="click_call" href="tel:+971522556307" id="jamal-call">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.24 1.18 2 2 0 012.24 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.6 7.49A16 16 0 0016.5 17.4l.94-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
-Call
-</a>
-</div></div>
 </div>
 <div class="bb-work">
 <div class="bb-work-head">
@@ -787,16 +769,10 @@ Call
 <p class="bb-lang">Speaks: English · Tagalog</p>
 </div>
 <span class="bb-pill" title="Five-star Google reviews that mention Jovel"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><span>55+ five-star Google reviews</span></span>
-<div class="bb-ctas bb-book"><span class="bb-ctas-label">Book Jovel</span><div class="bb-ctas-row">
-<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20I%27d%20like%20a%20haircut%20with%20Jovel" id="jovel-whatsapp" rel="noopener" target="_blank">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-Message
+<a class="btn btn--book btn--full cta-book bb-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076&amp;staff=9adeae09-6ed8-4d41-acc1-24ae808b62e9" id="jovel-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book with Jovel
 </a>
-<a class="btn btn--orange cta-call" data-event="click_call" href="tel:+971522556307" id="jovel-call">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.24 1.18 2 2 0 012.24 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.6 7.49A16 16 0 0016.5 17.4l.94-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
-Call
-</a>
-</div></div>
 </div>
 <div class="bb-work">
 <div class="bb-work-head">
@@ -836,16 +812,10 @@ Call
 <p class="bb-lang">Speaks: English · Hindi</p>
 </div>
 <span class="bb-pill" title="Five-star Google reviews that mention Uvaish"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><span>25+ five-star Google reviews</span></span>
-<div class="bb-ctas bb-book"><span class="bb-ctas-label">Book Uvaish</span><div class="bb-ctas-row">
-<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20I%27d%20like%20a%20haircut%20with%20Uvaish" id="uvaish-whatsapp" rel="noopener" target="_blank">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-Message
+<a class="btn btn--book btn--full cta-book bb-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076&amp;staff=79265120-789e-45cf-8aaf-95d036e650e9" id="uvaish-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book with Uvaish
 </a>
-<a class="btn btn--orange cta-call" data-event="click_call" href="tel:+971522556307" id="uvaish-call">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.24 1.18 2 2 0 012.24 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.6 7.49A16 16 0 0016.5 17.4l.94-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
-Call
-</a>
-</div></div>
 </div>
 <div class="bb-work">
 <div class="bb-work-head">
@@ -884,16 +854,10 @@ Call
 <p class="bb-lang">Speaks: English · Tagalog</p>
 </div>
 <span class="bb-pill" title="Five-star Google reviews that mention Ralph"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><span>55+ five-star Google reviews</span></span>
-<div class="bb-ctas bb-book"><span class="bb-ctas-label">Book Ralph</span><div class="bb-ctas-row">
-<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20I%27d%20like%20a%20haircut%20with%20Ralph" id="ralph-whatsapp" rel="noopener" target="_blank">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-Message
+<a class="btn btn--book btn--full cta-book bb-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076&amp;staff=efe5c4c8-2c67-4392-b802-c55345f9f8ba" id="ralph-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book with Ralph
 </a>
-<a class="btn btn--orange cta-call" data-event="click_call" href="tel:+971522556307" id="ralph-call">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.24 1.18 2 2 0 012.24 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.6 7.49A16 16 0 0016.5 17.4l.94-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
-Call
-</a>
-</div></div>
 </div>
 <div class="bb-work">
 <div class="bb-work-head">
@@ -947,38 +911,10 @@ Call
         Show Full Price List
       </button>
 <div style="margin-top:14px;">
-<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="services-whatsapp" rel="noopener" target="_blank">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-WhatsApp Us
+<a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="services-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book Now
 </a>
-</div>
-</div>
-</div>
-</section>
-<section class="fade-in" id="gallery">
-<div class="container">
-<div class="section-header">
-<span class="label">Inside the Shop</span>
-<h2>Gallery</h2>
-</div>
-<div class="gallery-grid">
-<div class="gallery-item">
-<img alt="Salon storefront" src="/images/gallery1_salonstorefront.jpg"/>
-</div>
-<div class="gallery-item">
-<img alt="Busy salon" src="/images/gallery2_busysalon.jpg"/>
-</div>
-<div class="gallery-item">
-<img alt="Happy client" src="/images/gallery3_happyclient.jpg"/>
-</div>
-<div class="gallery-item">
-<img alt="Manicure and pedicure" src="/images/gallery4_manipedi.jpg"/>
-</div>
-<div class="gallery-item">
-<img alt="Complimentary coffee" src="/images/gallery5_coffee.jpg"/>
-</div>
-<div class="gallery-item">
-<img alt="Staff member" src="/images/gallery6_staffmember.jpg"/>
 </div>
 </div>
 </div>
@@ -1033,17 +969,13 @@ WhatsApp Us
 <section id="contact">
 <div class="cta-block">
 <span class="label">Ready for a fresh look?</span>
-<h2>Walk In Today — No Appointment Needed</h2>
-<p>Walk-ins welcome. No appointment needed. Open daily 10 AM – 1 AM in Oud Metha.</p>
+<h2>Book Ahead or Walk In</h2>
+<p>Book your barber and time in under a minute, or walk in and we'll fit you in. Open daily 10 AM – 1 AM in Oud Metha.</p>
 <div class="cta-buttons">
-<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="footer-whatsapp" rel="noopener" target="_blank">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-        WhatsApp Us
-      </a>
-<a class="btn btn--ghost cta-call" data-event="click_call" href="tel:+971522556307" id="footer-call">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.24 1.18 2 2 0 012.24 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.6 7.49A16 16 0 0016.5 17.4l.94-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
-        Call Now
-      </a>
+<a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="footer-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book Now
+</a>
 </div>
 </div>
 </section>
@@ -1076,9 +1008,9 @@ WhatsApp Us
 </details>
 </div>
 <div style="text-align:center;margin-top:26px;">
-<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="faq-whatsapp" rel="noopener" target="_blank">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-WhatsApp Us
+<a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="faq-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book Now
 </a>
 </div>
 </div>
@@ -1086,8 +1018,10 @@ WhatsApp Us
 <footer>
 <div>© 2026 King Styling Gents Salon — Oud Metha, Dubai</div>
 <div style="margin-top:6px;">
-<a href="#services">Services</a> ·
-    <a href="#gallery">Gallery</a> ·
+<a href="#reviews">Reviews</a> ·
+    <a href="#styles">Styles</a> ·
+    <a href="#barbers">Barbers</a> ·
+    <a href="#services">Services</a> ·
     <a href="#location">Location</a> ·
     <a href="#faq">FAQ</a> ·
     <a class="cta-call" data-event="click_call" href="tel:+971522556307">+971 52 255 6307</a>
@@ -1267,9 +1201,9 @@ WhatsApp Us
 </div>
 <p style="font-size:0.76rem;color:var(--text-subtle);margin-top:10px;">All prices inclusive of VAT. Walk-ins welcome.</p>
 <div style="margin-top:16px;">
-<a class="btn btn--wa btn--full cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="pricelist-whatsapp" rel="noopener" target="_blank">
-<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-WhatsApp Us
+<a class="btn btn--book btn--full cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="pricelist-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book Now
 </a>
 </div>
 </div>

@@ -16,6 +16,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="/favicon.ico" sizes="48x48"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <title>Barber in Oud Metha | Haircuts from AED 40 | King Styling Gents Salon</title>
 <meta content="Walk-in barber in Oud Metha. Haircuts from AED 40. Beard trims, facials and grooming. No appointment needed." name="description"/>
 <script type="application/ld+json">
@@ -52,6 +55,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --green-mid:   #2e3d35;
       --orange:      #da8141;
       --orange-dark: #c46e30;
+      --book:        #212d27;
+      --book-dark:   #2e3d35;
       --wa-green:    #128c7e;
       --wa-dark:     #0e7065;
       --bg:          #f8f7f5;
@@ -141,6 +146,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .btn:hover { transform: scale(1.03); }
     .btn:active { transform: scale(0.97); }
     .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .btn--book { background: var(--book); color: #fff; box-shadow: 0 4px 14px rgba(33,45,39,0.30); }
+    .btn--book:hover { background: var(--book-dark); }
+    .btn--outline { background: #fff; color: var(--green); border: 1.5px solid var(--green); }
+    .btn--outline:hover { background: #f1f3f2; }
     .btn--wa { background: var(--wa-green); color: #fff; }
     .btn--wa:hover { background: var(--wa-dark); }
     .btn--green { background: var(--green); color: #fff; }
@@ -179,19 +188,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .open-now-hero .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; flex-shrink: 0; animation: pulse-subtle 2.5s ease-in-out infinite; position: relative; top: -1px; }
     .open-now-hero.closed { color: var(--text-muted); }
     .open-now-hero.closed .dot { background: #9ca3af; animation: none; }
-    .hero-images { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 26px; border-radius: var(--radius-lg); overflow: hidden; }
-    .hero-img { background: #e0ddd8; overflow: hidden; }
-    .hero-img:first-child { grid-column: 1 / -1; height: 200px; }
-    .hero-img:not(:first-child) { height: 128px; }
-    .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-video { position: relative; margin: 22px auto 26px; border-radius: var(--radius-lg); overflow: hidden; background: #1a1a1a; aspect-ratio: 9 / 16; max-width: 290px; width: 100%; }
+    .hero-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-video::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.25) 100%); pointer-events: none; }
     .img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--text-subtle); font-size: 0.72rem; text-align: center; padding: 10px; }
     .img-placeholder svg { width: 26px; height: 26px; opacity: 0.35; }
     .hero-ctas { display: flex; flex-direction: column; gap: 10px; }
     @media (min-width: 480px) { .hero-ctas { flex-direction: row; flex-wrap: wrap; } }
-    @media (min-width: 700px) {
-      .hero-images { grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 220px; }
-      .hero-img:first-child { grid-column: 1; height: 220px; }
-      .hero-img:not(:first-child) { height: 220px; }
+    @media (min-width: 900px) {
+      .hero-inner { max-width: 1040px; display: grid; grid-template-columns: minmax(0,1fr) 320px; column-gap: 56px; align-items: center; }
+      .hero-video { margin: 0; max-width: 320px; }
     }
     .hero-seo { font-size: 0.8rem; color: var(--text-subtle); margin-top: 18px; }
 
@@ -292,6 +298,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .cta-block .label { color: rgba(255,255,255,0.5); }
     .cta-block h2 { color: #fff; font-family: 'Cardo', serif; margin-bottom: 10px; }
     .cta-block p { color: rgba(255,255,255,0.6); margin-bottom: 28px; font-size: 0.92rem; }
+    .cta-block .btn--book { background: #fff; color: var(--green); box-shadow: 0 4px 14px rgba(0,0,0,0.25); }
+    .cta-block .btn--book:hover { background: #f1f3f2; }
     .cta-buttons { display: flex; flex-direction: column; gap: 10px; }
     @media (min-width: 480px) { .cta-buttons { flex-direction: row; justify-content: center; flex-wrap: wrap; } }
     .btn--ghost { background: rgba(255,255,255,0.12); color: #fff; border-radius: 100px; }
@@ -368,6 +376,101 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .rv-arrow { background: none; border: 1px solid #dadada; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text-muted); font-size: 1rem; transition: border-color 0.15s; }
     .rv-arrow:hover { border-color: var(--green); color: var(--green); }
 
+
+    /* === BARBERS === */
+    .barbers-section { background: var(--bg); }
+    .bb-list { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .bb-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 16px; display: flex; flex-direction: column; gap: 16px; }
+    .bb-top { display: flex; flex-direction: column; gap: 18px; }
+    .bb-id { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px 16px; align-items: start; }
+    .bb-portrait { width: 112px; height: 112px; border-radius: var(--radius); overflow: hidden; background: #e0ddd8; }
+    .bb-portrait img { width: 100%; height: 100%; object-fit: cover; }
+    .bb-info { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+    .bb-name { font-family: 'Cardo', serif; font-size: 1.4rem; line-height: 1.1; color: var(--green); font-weight: 700; }
+    .bb-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .bb-chip { background: #eef2ef; color: var(--green); font-size: 0.8rem; font-weight: 500; padding: 4px 10px; border-radius: 100px; line-height: 1.3; }
+    .bb-lang { font-size: 0.85rem; color: var(--text-muted); }
+    .bb-book { grid-column: 1 / -1; min-height: 48px; }
+    .bb-ctas { display: flex; flex-direction: column; gap: 8px; }
+    .bb-ctas-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+    .bb-ctas-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .bb-ctas-row .btn { padding: 13px 10px; }
+    .bb-work { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+    .bb-work-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .bb-work-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange-dark); }
+    .bb-hint { font-size: 0.8rem; color: var(--text-muted); }
+    .bb-arrows { display: none; gap: 8px; }
+    .bb-arrow { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-dark); background: #fff; color: var(--green); font-size: 1.3rem; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0 0 2px; }
+    .bb-arrow:hover { border-color: var(--green); }
+    .bb-scroller { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 8px; scrollbar-width: thin; }
+    .bb-scroller:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .bb-tile { flex: 0 0 auto; width: 180px; height: 240px; scroll-snap-align: start; position: relative; border-radius: var(--radius); overflow: hidden; background: #e0ddd8; }
+    .bb-tile img { width: 100%; height: 100%; object-fit: cover; }
+    .bb-style { position: absolute; left: 8px; bottom: 8px; background: rgba(33,45,39,0.88); color: #fff; font-size: 0.75rem; font-weight: 500; padding: 3px 9px; border-radius: 100px; }
+    .bb-ph { background: repeating-linear-gradient(135deg, #e6e2dc 0 12px, #ece8e2 12px 24px); display: flex; align-items: center; justify-content: center; text-align: center; color: #55524e; font-size: 0.8rem; padding: 8px; }
+    @media (min-width: 700px) {
+      .bb-list { gap: 24px; }
+      .bb-card { padding: 24px; gap: 20px; }
+      .bb-top { flex-direction: row; gap: 28px; align-items: stretch; }
+      .bb-id { display: flex; flex-direction: column; flex: 0 0 240px; gap: 14px; }
+      .bb-portrait { width: 240px; height: 240px; }
+      .bb-name { font-size: 1.6rem; }
+      .bb-work { flex: 1 1 0; }
+      .bb-tile { width: 240px; height: 320px; }
+    }
+    @media (hover: hover) and (min-width: 700px) {
+      .bb-arrows { display: flex; }
+      .bb-hint { display: none; }
+    }
+
+    /* === PHOTO STRIP (Why Customers Choose Us) === */
+    .pc-wrap { margin-bottom: 24px; display: flex; flex-direction: column; gap: 10px; }
+    .pc-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .pc-scroller { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 8px; scrollbar-width: thin; }
+    .pc-scroller:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+
+    .bb-role { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange-dark); }
+
+    /* === REVIEW CARDS (photo on top, review underneath) — used in the reviews carousel and inside each team card === */
+    .rc-card { flex: 0 0 auto; width: 260px; scroll-snap-align: start; margin: 0; display: flex; flex-direction: column; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+    .rc-photo { position: relative; aspect-ratio: 1 / 1; background: #e0ddd8; overflow: hidden; }
+    .rc-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .rc-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .rc-stars { display: flex; gap: 2px; }
+    .rc-quote { font-size: 0.9rem; line-height: 1.5; color: var(--text-mid); display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+    .rc-who { font-size: 0.78rem; color: var(--text-muted); margin-top: auto; }
+    @media (min-width: 700px) { .rc-card { width: 300px; } }
+    /* team card: five-star pill + review row (infinite, arrows on desktop) */
+    .bb-pill { grid-column: 1 / -1; justify-self: start; align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 4px 11px 4px 9px; font-size: 0.8rem; font-weight: 600; color: var(--green); line-height: 1.3; max-width: 100%; }
+    .bb-pill svg { flex: 0 0 auto; }
+    /* Ralph's card: a calm, cool tint (not orange) so it reads as a different role without shouting */
+    .bb-card--spec { background: #f3f6f4; border-color: #dbe3de; }
+    .bb-card--spec .bb-chip { background: #e1e9e4; }
+    .bb-card--spec .bb-pill { border-color: #dbe3de; }
+    .bb-card--spec .bb-rcard { background: #e9efec; }
+    .bb-scroller, .pc-scroller, .bb-rscroller, .st-scroller { position: relative; }
+    .bb-rwrap { position: relative; }
+    .bb-rscroller { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 6px; scrollbar-width: thin; }
+    .bb-rscroller:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .bb-rcard { flex: 0 0 85%; scroll-snap-align: start; background: var(--bg); border-radius: var(--radius); padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+    .bb-rcard .rc-quote { -webkit-line-clamp: 7; }
+    .bb-rarrow { display: none; position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+    .bb-rarrow--prev { left: 6px; } .bb-rarrow--next { right: 6px; }
+    @media (min-width: 700px) { .bb-rcard { flex: 0 0 300px; } }
+    @media (hover: hover) and (min-width: 700px) { .bb-rarrow { display: flex; } }
+    /* styles section */
+    .styles-section { background: #fff; }
+    .st-scroller { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 8px; scrollbar-width: thin; }
+    .st-scroller:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .st-card { flex: 0 0 auto; width: 220px; scroll-snap-align: start; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; }
+    .st-photo { aspect-ratio: 3 / 4; position: relative; background: #e0ddd8; overflow: hidden; }
+    .st-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .st-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+    .st-name { font-family: 'Cardo', serif; font-size: 1.1rem; line-height: 1.15; color: var(--green); font-weight: 700; }
+    .st-desc { font-size: 0.85rem; line-height: 1.45; color: var(--text-muted); }
+    .st-meta { margin-top: auto; padding-top: 6px; font-size: 0.82rem; font-weight: 700; color: var(--orange-dark); }
+    .st-link { font-size: 0.82rem; font-weight: 700; color: var(--green); text-decoration: underline; text-underline-offset: 2px; }
+    @media (min-width: 700px) { .st-card { width: 240px; } }
   </style>
 </head>
 <body>
@@ -381,10 +484,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a aria-label="WhatsApp" class="float-btn float-btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="float-whatsapp" rel="noopener" target="_blank">
 <svg fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
 <span class="float-btn-text">Message us</span>
-</a>
-<a aria-label="Open in Google Maps" class="float-btn float-btn--maps cta-location" data-event="click_location" href="https://maps.app.goo.gl/iWih7YpJwwUCEZE16" id="float-maps" rel="noopener" target="_blank">
-<img alt="Maps" height="20" src="images/googlemaps_icon_2026.png" width="20"/>
-<span class="float-btn-text">Directions</span>
 </a>
 </div>
 <header>
@@ -438,6 +537,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </header>
 <section id="hero">
 <div class="hero-inner">
+<div class="hero-copy">
 <div class="open-now-hero" id="openStatusHero">
 <span class="dot"></span><span id="openTextHero">Open Now</span>
 </div>
@@ -445,10 +545,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p class="hero-tagline">Oud Metha's Trusted Gents Barber</p>
 <div class="hero-pills">
 <div class="hero-pill-grey">
-<img alt="Google Maps" src="images/googlemaps_icon_2026.png" width="16" height="16" style="flex-shrink:0;display:block;"/>
+<img alt="Google Maps" src="/images/googlemaps_icon_2026.png" width="16" height="16" style="flex-shrink:0;display:block;"/>
 <span style="font-weight:700;color:var(--green);">4.9</span>
 <span style="color:#fbbc04;letter-spacing:1px;">★★★★★</span>
-<span style="color:var(--text-muted);">(200+)</span>
+<span style="color:var(--text-muted);">(250+)</span>
 </div>
 <div class="hero-pill-grey">
 <svg fill="none" stroke="#1a1a1a" stroke-width="2.5" viewBox="0 0 24 24" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -456,17 +556,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </div>
 <p class="hero-subtitle">Haircuts from <span style="color:var(--orange);">AED 40</span> · Beard trims, facials and more</p>
-<div class="hero-images">
-<div class="hero-img">
-<img alt="King Styling Gents Salon interior" src="images/hero1_store_interior_empty.jpg"/>
-</div>
-<div class="hero-img">
-<img alt="Precision fade haircut" src="images/hero2_haircutphoto.jpg"/>
-</div>
-<div class="hero-img">
-<img alt="Happy customer" src="images/hero3_happycustomer.jpg"/>
-</div>
-</div>
 <div class="hero-ctas">
 <a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="hero-whatsapp" rel="noopener" target="_blank">
 <svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
@@ -479,6 +568,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <p class="hero-seo">Your local barber in Oud Metha. Walk in today for haircuts, beard trims and men's grooming.</p>
 </div>
+<div class="hero-video">
+<video autoplay="" loop="" muted="" playsinline="" preload="metadata" poster="/images/hero-poster.webp" aria-label="Inside King Styling Gents Salon in Oud Metha">
+<source src="/images/hero.mp4" type="video/mp4"/>
+<img alt="King Styling Gents Salon in Oud Metha" src="/images/hero-poster.webp"/>
+</video>
+</div>
+</div>
 </section>
 <section class="reviews-section">
 <div class="container">
@@ -487,82 +583,345 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h2>Why Customers Choose Us</h2>
 </div>
 <a class="gm-rating-block" data-event="click_reviews" href="https://maps.app.goo.gl/iWih7YpJwwUCEZE16" rel="noopener" target="_blank">
-<img alt="Maps" height="32" src="images/googlemaps_icon_2026.png" style="display:block;flex-shrink:0;" width="32"/>
+<img alt="Maps" height="32" src="/images/googlemaps_icon_2026.png" style="display:block;flex-shrink:0;" width="32"/>
 <div class="gm-rating-text">
 <div class="gm-rating-row">
 <span class="gm-score">4.9</span>
 <span class="gm-stars">★★★★★</span>
-<span class="gm-count">(200+)</span>
+<span class="gm-count">(250+)</span>
 </div>
-<div class="gm-label">200+ Google Maps Reviews</div>
+<div class="gm-label">250+ Google Maps Reviews</div>
 <div class="gm-verified">Verified Google Reviews</div>
 </div>
 </a>
-<div class="rv-outer" id="rvOuter">
-<div class="rv-track" id="rvTrack">
-<div class="rv-card">
-<div class="rv-top">
-<div class="rv-avatar">P</div>
-<div>
-<div class="rv-name">Punit</div>
-<div class="rv-stars">★★★★★</div>
+<div class="pc-wrap">
+<div class="pc-head">
+<span class="bb-work-label">Recent reviews</span>
+<span class="bb-hint">Swipe →</span>
+<div class="bb-arrows">
+<button aria-label="Previous reviews" class="bb-arrow" data-dir="prev" type="button">‹</button>
+<button aria-label="Next reviews" class="bb-arrow" data-dir="next" type="button">›</button>
 </div>
 </div>
-<p class="rv-text">Best gents barber in Oud Metha. Clean place and professional team.</p>
-</div>
-<div class="rv-card">
-<div class="rv-top">
-<div class="rv-avatar">S</div>
-<div>
-<div class="rv-name">Sanketh</div>
-<div class="rv-stars">★★★★★</div>
-</div>
-</div>
-<p class="rv-text">Great haircut and beard trim. Highly recommend for anyone in Oud Metha.</p>
-</div>
-<div class="rv-card">
-<div class="rv-top">
-<div class="rv-avatar">M</div>
-<div>
-<div class="rv-name">Mohammed</div>
-<div class="rv-stars">★★★★★</div>
-</div>
-</div>
-<p class="rv-text">Very convenient for nearby offices. Quick service and good prices.</p>
-</div>
-<div class="rv-card">
-<div class="rv-top">
-<div class="rv-avatar">R</div>
-<div>
-<div class="rv-name">Rahul</div>
-<div class="rv-stars">★★★★★</div>
-</div>
-</div>
-<p class="rv-text">Good mani pedi and facial. Friendly staff and no waiting time.</p>
-</div>
-<div class="rv-card">
-<div class="rv-top">
-<div class="rv-avatar">A</div>
-<div>
-<div class="rv-name">Ahmed</div>
-<div class="rv-stars">★★★★★</div>
-</div>
-</div>
-<p class="rv-text">Walk-in, no booking needed. Got a clean fade and beard shape. Fast service.</p>
-</div>
-<div class="rv-card">
-<div class="rv-top">
-<div class="rv-avatar">A</div>
-<div>
-<div class="rv-name">Arjun</div>
-<div class="rv-stars">★★★★★</div>
-</div>
-</div>
-<p class="rv-text">Been coming here for months. Consistent quality every time.</p>
+<div aria-label="Recent Google reviews" class="pc-scroller" role="region" tabindex="0">
+<figure class="rc-card">
+<div class="rc-photo"><img alt="Customer after his haircut at King Styling" height="225" loading="lazy" src="/images/review1.webp" width="300"/><span class="bb-style">Fresh cut, happy customer</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“If you're looking for a barber who actually understands hair texture and head shape, this is the spot. A true master of the craft. …”</p>
+<span class="rc-who">Atif · Google review</span>
+</figcaption>
+</figure>
+<figure class="rc-card">
+<div class="rc-photo"><img alt="A King Styling barber with a customer" height="225" loading="lazy" src="/images/review4.webp" width="300"/><span class="bb-style">Our team</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“Excellent haircut! The atmosphere is really pleasant, everything is very clean, and the service is top-notch. …”</p>
+<span class="rc-who">Halil · Google review</span>
+</figcaption>
+</figure>
+<figure class="rc-card">
+<div class="rc-photo"><img alt="Jovel blow-drying a customer at King Styling" height="225" loading="lazy" src="/images/jovel2-square.webp" width="300"/><span class="bb-style">Finishing touches</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“My favourite barber in Dubai, state-of-the-art service. Clean location, friendly staff and very fairly priced!”</p>
+<span class="rc-who">Ammar · Google review</span>
+</figcaption>
+</figure>
+<figure class="rc-card">
+<div class="rc-photo"><img alt="Barbers at work inside King Styling Gents Salon" height="225" loading="lazy" src="/images/review3.webp" width="300"/><span class="bb-style">Inside the salon</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“Amazing experience! Professional staff, clean environment, and perfect haircut. Exactly what I wanted. Highly recommended!”</p>
+<span class="rc-who">Naveed · Google review</span>
+</figcaption>
+</figure>
+<figure class="rc-card">
+<div class="rc-photo"><img alt="King Styling Gents Salon storefront in Oud Metha" height="225" loading="lazy" src="/images/review2.webp" width="300"/><span class="bb-style">Parking outside</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“Great team and service. Also the location is very convenient with parking directly outside the store.”</p>
+<span class="rc-who">Mohd · Google review</span>
+</figcaption>
+</figure>
+<figure class="rc-card">
+<div class="rc-photo"><img alt="Complimentary coffee served at King Styling" height="225" loading="lazy" src="/images/review5.webp" width="300"/><span class="bb-style">Coffee on us</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“Fantastic salon and service. First time I visited, they took their time, gave a beverage and offered great services. Thanks guys!”</p>
+<span class="rc-who">Sofiène · Google review</span>
+</figcaption>
+</figure>
 </div>
 </div>
+<div style="text-align:center;margin-top:24px;">
+<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="reviews-whatsapp" rel="noopener" target="_blank">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+WhatsApp Us
+</a>
 </div>
-<div class="rv-nav" id="rvNav"></div>
+</div>
+</section>
+<section class="styles-section" id="styles">
+<div class="container--wide">
+<div class="container">
+<div class="section-header">
+<span class="label">Find Your Cut</span>
+<h2>Haircuts and styles we do</h2>
+<p>Not sure what to ask for? Show your barber a photo, or ask what suits your face and hair.</p>
+</div>
+</div>
+<div class="bb-list">
+<div class="pc-wrap">
+<div class="pc-head">
+<span class="bb-work-label">Popular cuts</span>
+<span class="bb-hint">Swipe →</span>
+<div class="bb-arrows">
+<button aria-label="Previous styles" class="bb-arrow" data-dir="prev" type="button">‹</button>
+<button aria-label="Next styles" class="bb-arrow" data-dir="next" type="button">›</button>
+</div>
+</div>
+<div aria-label="Haircut styles" class="st-scroller" role="region" tabindex="0">
+<article class="st-card">
+<div class="st-photo"><img alt="Beard trim and fade at King Styling" height="300" loading="lazy" src="/images/styles-beard-fade.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Beard trim &amp; shape</h3><p class="st-desc">Trim, line-up and hot-towel shave.</p><span class="st-meta">AED 30 · 20 min</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Textured haircut at King Styling" height="300" loading="lazy" src="/images/styles-textured.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Textured &amp; quiff</h3><p class="st-desc">Volume and movement on top, tight on the sides.</p><span class="st-meta">From AED 40</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Taper haircut at King Styling" height="300" loading="lazy" src="/images/styles-taper.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Tapers</h3><p class="st-desc">Clean, blended sides that grow out neatly.</p><span class="st-meta">From AED 40</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Scissor cut with slick back at King Styling" height="300" loading="lazy" src="/images/styles-scissor-cut-and-slickback.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Scissor cut &amp; slick-back</h3><p class="st-desc">Length kept on top, scissor-shaped and styled back.</p><span class="st-meta">From AED 40</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Buzz cut and skin fade at King Styling" height="300" loading="lazy" src="/images/styles-buzz-cut.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Buzz cuts &amp; skin fades</h3><p class="st-desc">Short, sharp and easy to maintain.</p><span class="st-meta">From AED 40</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Men’s perm result" height="300" loading="lazy" src="/images/styles-perming.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Men’s perm</h3><p class="st-desc">Natural curls and volume, with a free haircut offer.</p><span class="st-meta">From AED 300 · about 2 hrs</span><a class="st-link" data-event="click_perm_details" href="/perming.html" id="styles-perm">See perm details →</a></div>
+</article>
+</div>
+</div>
+<div style="text-align:center;">
+<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="styles-whatsapp" rel="noopener" target="_blank">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+WhatsApp Us
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="barbers-section" id="barbers">
+<div class="container--wide">
+<div class="container">
+<div class="section-header">
+<span class="label">Our Team</span>
+<h2>Meet the team</h2>
+<p>See their recent work, read what customers say, then message the person you like.</p>
+</div>
+</div>
+<div class="bb-list">
+<article class="bb-card">
+<div class="bb-top">
+<div class="bb-id">
+<div class="bb-portrait"><img alt="Jamal, barber at King Styling Gents Salon" height="240" src="/images/team-jamal.webp" width="240"/></div>
+<div class="bb-info">
+<span class="bb-role">Barber</span>
+<h3 class="bb-name">Jamal</h3>
+<div class="bb-chips"><span class="bb-chip">Scissor cuts</span><span class="bb-chip">Perming</span><span class="bb-chip">Anti-dandruff treatment</span><span class="bb-chip">Beard trim</span></div>
+
+<p class="bb-lang">Speaks: English · Hindi · Punjabi</p>
+</div>
+<div class="bb-ctas bb-book"><span class="bb-ctas-label">Book Jamal</span><div class="bb-ctas-row">
+<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20I%27d%20like%20a%20haircut%20with%20Jamal" id="jamal-whatsapp" rel="noopener" target="_blank">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+Message
+</a>
+<a class="btn btn--orange cta-call" data-event="click_call" href="tel:+971522556307" id="jamal-call">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.24 1.18 2 2 0 012.24 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.6 7.49A16 16 0 0016.5 17.4l.94-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+Call
+</a>
+</div></div>
+</div>
+<div class="bb-work">
+<div class="bb-work-head">
+<span class="bb-work-label">Recent work</span>
+<span class="bb-hint">Swipe →</span>
+<div class="bb-arrows">
+<button aria-label="Previous photos" class="bb-arrow" data-dir="prev" type="button">‹</button>
+<button aria-label="Next photos" class="bb-arrow" data-dir="next" type="button">›</button>
+</div>
+</div>
+<div aria-label="Recent work by Jamal" class="bb-scroller" role="region" tabindex="0">
+<div class="bb-tile"><img alt="Slick back by Jamal" height="320" loading="lazy" src="/images/jamal1.webp" width="240"/><span class="bb-style">Slick back</span></div><div class="bb-tile"><img alt="Quiff by Jamal" height="320" loading="lazy" src="/images/jamal2.webp" width="240"/><span class="bb-style">Quiff</span></div><div class="bb-tile"><img alt="Curls by Jamal" height="320" loading="lazy" src="/images/jamal3.webp" width="240"/><span class="bb-style">Curls</span></div><div class="bb-tile"><img alt="Curls and taper by Jamal" height="320" loading="lazy" src="/images/jamal4.webp" width="240"/><span class="bb-style">Curls &amp; taper</span></div>
+</div>
+</div>
+</div>
+<div class="bb-rwrap">
+<button aria-label="Previous reviews" class="bb-arrow bb-rarrow bb-rarrow--prev" data-dir="prev" type="button">‹</button>
+<div aria-label="Google reviews for Jamal" class="bb-rscroller" role="region" tabindex="0">
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Jamal did an EXCELLENT job! One of the best haircuts I ever had around the world. Smooth, precise, clean and with a scalp massage at the end. …”</p><span class="rc-who">Hector · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“I would like to thank Mr Jamal for giving me such an amazing look. I really loved the way you work patiently. This is my second time I got a haircut at this shop and I came specially from Abu Dhabi …”</p><span class="rc-who">Deepanshu · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Jamal was great and gave my 15-year-old a fantastic haircut. The salon is also very conveniently located, just a short walk from his school. …”</p><span class="rc-who">Stéphanie · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“First time here and Jamal gave me a treat, haircut was clean and his services were excellent. I’m definitely coming back. …”</p><span class="rc-who">Milean · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Jamal Sahaab is a very professional hair stylist with true talent and skill.”</p><span class="rc-who">Ayyan · Google review</span></div>
+</div>
+<button aria-label="Next reviews" class="bb-arrow bb-rarrow bb-rarrow--next" data-dir="next" type="button">›</button>
+</div>
+</article>
+<article class="bb-card">
+<div class="bb-top">
+<div class="bb-id">
+<div class="bb-portrait"><img alt="Jovel, barber at King Styling Gents Salon" height="240" src="/images/team-jovel.webp" width="240"/></div>
+<div class="bb-info">
+<span class="bb-role">Barber</span>
+<h3 class="bb-name">Jovel</h3>
+<div class="bb-chips"><span class="bb-chip">Taper fades</span><span class="bb-chip">Buzz cuts</span><span class="bb-chip">Beard trim</span></div>
+
+<p class="bb-lang">Speaks: English · Tagalog</p>
+</div>
+<span class="bb-pill" title="Five-star Google reviews that mention Jovel"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><span>55+ five-star Google reviews</span></span>
+<div class="bb-ctas bb-book"><span class="bb-ctas-label">Book Jovel</span><div class="bb-ctas-row">
+<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20I%27d%20like%20a%20haircut%20with%20Jovel" id="jovel-whatsapp" rel="noopener" target="_blank">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+Message
+</a>
+<a class="btn btn--orange cta-call" data-event="click_call" href="tel:+971522556307" id="jovel-call">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.24 1.18 2 2 0 012.24 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.6 7.49A16 16 0 0016.5 17.4l.94-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+Call
+</a>
+</div></div>
+</div>
+<div class="bb-work">
+<div class="bb-work-head">
+<span class="bb-work-label">Recent work</span>
+<span class="bb-hint">Swipe →</span>
+<div class="bb-arrows">
+<button aria-label="Previous photos" class="bb-arrow" data-dir="prev" type="button">‹</button>
+<button aria-label="Next photos" class="bb-arrow" data-dir="next" type="button">›</button>
+</div>
+</div>
+<div aria-label="Recent work by Jovel" class="bb-scroller" role="region" tabindex="0">
+<div class="bb-tile"><img alt="Textured cut by Jovel" height="320" loading="lazy" src="/images/jovel1.webp" width="240"/><span class="bb-style">Textured cut</span></div><div class="bb-tile"><img alt="Blow-dry finish by Jovel" height="320" loading="lazy" src="/images/jovel2.webp" width="240"/><span class="bb-style">Blow-dry finish</span></div><div class="bb-tile"><img alt="Pompadour by Jovel" height="320" loading="lazy" src="/images/jovel3.webp" width="240"/><span class="bb-style">Pompadour</span></div><div class="bb-tile"><img alt="Back taper by Jovel" height="320" loading="lazy" src="/images/jovel4.webp" width="240"/><span class="bb-style">Back taper</span></div>
+</div>
+</div>
+</div>
+<div class="bb-rwrap">
+<button aria-label="Previous reviews" class="bb-arrow bb-rarrow bb-rarrow--prev" data-dir="prev" type="button">‹</button>
+<div aria-label="Google reviews for Jovel" class="bb-rscroller" role="region" tabindex="0">
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Very satisfied with my haircut, the first one I’ve had in 7 months. Jovel did an incredible job, he was very patient and listened to my specifications to the tee. Great price too, would highly recommend a visit!”</p><span class="rc-who">Vihan · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Got a tapered cut and fade from Jovel - absolutely flawless work. He handled my natural curly hair with superb attention to detail, stayed focused, efficient, and delivered exactly what I asked for. Highly recommended.”</p><span class="rc-who">Yas · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“My son had a kids’ cut, and I went for a razor cut. Huge thanks to Jovel for being so patient and making my little one feel comfortable throughout the entire session. …”</p><span class="rc-who">Phillip · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Great experience! Jovel was skilled, friendly, and gave me exactly the cut I wanted. Highly recommend.”</p><span class="rc-who">Rekha · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Was attended by Jovel and he did a great job with my hair especially with my beard. The place is clean and the staff are very hygienic.”</p><span class="rc-who">Felicisimo · Google review</span></div>
+</div>
+<button aria-label="Next reviews" class="bb-arrow bb-rarrow bb-rarrow--next" data-dir="next" type="button">›</button>
+</div>
+</article>
+<article class="bb-card">
+<div class="bb-top">
+<div class="bb-id">
+<div class="bb-portrait"><img alt="Uvaish, barber at King Styling Gents Salon" height="240" src="/images/team-uvaish.webp" width="240"/></div>
+<div class="bb-info">
+<span class="bb-role">Barber</span>
+<h3 class="bb-name">Uvaish</h3>
+<div class="bb-chips"><span class="bb-chip">Fades</span><span class="bb-chip">Beard trim</span></div>
+
+<p class="bb-lang">Speaks: English · Hindi</p>
+</div>
+<span class="bb-pill" title="Five-star Google reviews that mention Uvaish"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><span>25+ five-star Google reviews</span></span>
+<div class="bb-ctas bb-book"><span class="bb-ctas-label">Book Uvaish</span><div class="bb-ctas-row">
+<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20I%27d%20like%20a%20haircut%20with%20Uvaish" id="uvaish-whatsapp" rel="noopener" target="_blank">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+Message
+</a>
+<a class="btn btn--orange cta-call" data-event="click_call" href="tel:+971522556307" id="uvaish-call">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.24 1.18 2 2 0 012.24 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.6 7.49A16 16 0 0016.5 17.4l.94-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+Call
+</a>
+</div></div>
+</div>
+<div class="bb-work">
+<div class="bb-work-head">
+<span class="bb-work-label">Recent work</span>
+<span class="bb-hint">Swipe →</span>
+<div class="bb-arrows">
+<button aria-label="Previous photos" class="bb-arrow" data-dir="prev" type="button">‹</button>
+<button aria-label="Next photos" class="bb-arrow" data-dir="next" type="button">›</button>
+</div>
+</div>
+<div aria-label="Recent work by Uvaish" class="bb-scroller" role="region" tabindex="0">
+<div class="bb-tile"><img alt="Taper by Uvaish" height="320" loading="lazy" src="/images/uvaish1.webp" width="240"/><span class="bb-style">Taper</span></div><div class="bb-tile"><img alt="Cut and beard by Uvaish" height="320" loading="lazy" src="/images/uvaish2.webp" width="240"/><span class="bb-style">Cut &amp; beard</span></div><div class="bb-tile"><img alt="Textured crop by Uvaish" height="320" loading="lazy" src="/images/uvaish3.webp" width="240"/><span class="bb-style">Textured crop</span></div><div class="bb-tile"><img alt="Slick back by Uvaish" height="320" loading="lazy" src="/images/uvaish4.webp" width="240"/><span class="bb-style">Slick back</span></div>
+</div>
+</div>
+</div>
+<div class="bb-rwrap">
+<button aria-label="Previous reviews" class="bb-arrow bb-rarrow bb-rarrow--prev" data-dir="prev" type="button">‹</button>
+<div aria-label="Google reviews for Uvaish" class="bb-rscroller" role="region" tabindex="0">
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Genuine recommendation for sure. Uvaish, the barber, is an absolutely talented artist. Does not rush the cut …”</p><span class="rc-who">Omar · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Fantastic salon, clean and tidy. Mr. Uvaish is fabulous, he always does an amazing job. Highly recommend.”</p><span class="rc-who">Hisham · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Had a great haircut. Have been going here regularly. Ask for Uvaish, he’s the man.”</p><span class="rc-who">Keith · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Uvaish you made my first time experience truly amazing. You were really humble and provided a very good service.”</p><span class="rc-who">Syed · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Amazing service and Uvaish does amazing styling and is extremely attentive about the client needs and preferences. Never disappoints! …”</p><span class="rc-who">Ruchir · Google review</span></div>
+</div>
+<button aria-label="Next reviews" class="bb-arrow bb-rarrow bb-rarrow--next" data-dir="next" type="button">›</button>
+</div>
+</article>
+<article class="bb-card bb-card--spec">
+<div class="bb-top">
+<div class="bb-id">
+<div class="bb-portrait"><img alt="Ralph, barber at King Styling Gents Salon" height="240" src="/images/team-ralph.webp" width="240"/></div>
+<div class="bb-info">
+<span class="bb-role">Nails &amp; Facials Specialist</span>
+<h3 class="bb-name">Ralph (Raffy)</h3>
+<div class="bb-chips"><span class="bb-chip">Manicure</span><span class="bb-chip">Pedicure</span><span class="bb-chip">Facials</span></div>
+<p class="bb-lang">Speaks: English · Tagalog</p>
+</div>
+<span class="bb-pill" title="Five-star Google reviews that mention Ralph"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><span>55+ five-star Google reviews</span></span>
+<div class="bb-ctas bb-book"><span class="bb-ctas-label">Book Ralph</span><div class="bb-ctas-row">
+<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20I%27d%20like%20a%20haircut%20with%20Ralph" id="ralph-whatsapp" rel="noopener" target="_blank">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+Message
+</a>
+<a class="btn btn--orange cta-call" data-event="click_call" href="tel:+971522556307" id="ralph-call">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.24 1.18 2 2 0 012.24 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.6 7.49A16 16 0 0016.5 17.4l.94-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+Call
+</a>
+</div></div>
+</div>
+<div class="bb-work">
+<div class="bb-work-head">
+<span class="bb-work-label">Recent work</span>
+<span class="bb-hint">Swipe →</span>
+<div class="bb-arrows">
+<button aria-label="Previous photos" class="bb-arrow" data-dir="prev" type="button">‹</button>
+<button aria-label="Next photos" class="bb-arrow" data-dir="next" type="button">›</button>
+</div>
+</div>
+<div aria-label="Recent work by Ralph (Raffy)" class="bb-scroller" role="region" tabindex="0">
+<div class="bb-tile"><img alt="Manicure by Ralph" height="320" loading="lazy" src="/images/ralph1.webp" width="240"/><span class="bb-style">Manicure</span></div><div class="bb-tile"><img alt="Nail filing by Ralph" height="320" loading="lazy" src="/images/ralph2.webp" width="240"/><span class="bb-style">Manicure</span></div><div class="bb-tile"><img alt="Finished manicure by Ralph" height="320" loading="lazy" src="/images/ralph3.webp" width="240"/><span class="bb-style">Manicure</span></div><div class="bb-tile"><img alt="Pedicure at King Styling" height="320" loading="lazy" src="/images/ralph4.webp" width="240"/><span class="bb-style">Pedicure</span></div>
+</div>
+</div>
+</div>
+<div class="bb-rwrap">
+<button aria-label="Previous reviews" class="bb-arrow bb-rarrow bb-rarrow--prev" data-dir="prev" type="button">‹</button>
+<div aria-label="Google reviews for Ralph (Raffy)" class="bb-rscroller" role="region" tabindex="0">
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Best facial I’ve ever had with Raffy! My skin feels incredible. Definitely worth it! I’ll be back for sure!”</p><span class="rc-who">Ervin · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Mr. Raffy is a highly skilled and professional facialist. His attention to detail and care are outstanding, making him a top choice for facial treatments. Highly recommended!”</p><span class="rc-who">Hameed · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“I want Raffy to do my nails. He is kind and attentive to me, and very professional, facial as well. When I come back, I want him to be the one to do my service.”</p><span class="rc-who">Mary · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Very professional service, especially Raffy. The staff explained each step and made sure I was comfortable throughout. Great attention to detail.”</p><span class="rc-who">Laila · Google review</span></div>
+<div class="bb-rcard"><div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div><p class="rc-quote">“Raffy was professional and really took the time to ensure everything was perfect. My skin feels completely rejuvenated, and the nail work is very clean and precise. Thank you, Raffy. Highly recommend!”</p><span class="rc-who">Roy · Google review</span></div>
+</div>
+<button aria-label="Next reviews" class="bb-arrow bb-rarrow bb-rarrow--next" data-dir="next" type="button">›</button>
+</div>
+</article>
+</div>
 </div>
 </section>
 <section class="fade-in" id="services">
@@ -576,17 +935,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </div>
 <div class="services-grid" style="max-width:980px;margin:0 auto;padding:0 20px;">
-<div class="svc-card"><div class="svc-img"><img alt="Haircut service" src="images/services1_haircut.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Haircut</div><span class="svc-badge">🔥 Most Popular</span></div><div class="svc-price">From AED 40</div><div class="svc-tag">Classic · Fade · Taper</div></div></div>
-<div class="svc-card"><div class="svc-img"><img alt="Beard trim service" src="images/services2_beardtrim.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Beard Trim</div></div><div class="svc-price">From AED 30</div><div class="svc-tag">Trim · Shape · Shave</div></div></div>
-<div class="svc-card"><div class="svc-img"><img alt="Facial service" src="images/services3_facial.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Facials</div><span class="svc-badge">🔥 Most Popular</span></div><div class="svc-price">From AED 60</div><div class="svc-tag">Deep clean & refresh</div></div></div>
-<div class="svc-card"><div class="svc-img"><img alt="Manicure service" src="images/services4_manicure.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Manicure</div><span class="svc-badge">🔥 Most Popular</span></div><div class="svc-price">From AED 50</div><div class="svc-tag">Clean hands & nails</div></div></div>
-<div class="svc-card"><div class="svc-img"><img alt="Pedicure service" src="images/services5_pedicure.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Pedicure</div></div><div class="svc-price">From AED 60</div><div class="svc-tag">Foot care & massage</div></div></div>
-<div class="svc-card"><div class="svc-img"><img alt="Hair coloring service" src="images/services6_haircoloring.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Hair Coloring & Treatments</div></div><div class="svc-price">From AED 70</div><div class="svc-tag">Color · Keratin · Perm</div></div></div>
+<div class="svc-card"><div class="svc-img"><img alt="Haircut service" src="/images/services1_haircut.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Haircut</div><span class="svc-badge">🔥 Most Popular</span></div><div class="svc-price">From AED 40</div><div class="svc-tag">Classic · Fade · Taper</div></div></div>
+<div class="svc-card"><div class="svc-img"><img alt="Beard trim service" src="/images/services2_beardtrim.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Beard Trim</div></div><div class="svc-price">From AED 30</div><div class="svc-tag">Trim · Shape · Shave</div></div></div>
+<div class="svc-card"><div class="svc-img"><img alt="Facial service" src="/images/services3_facial.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Facials</div><span class="svc-badge">🔥 Most Popular</span></div><div class="svc-price">From AED 60</div><div class="svc-tag">Deep clean & refresh</div></div></div>
+<div class="svc-card"><div class="svc-img"><img alt="Manicure service" src="/images/services4_manicure.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Manicure</div><span class="svc-badge">🔥 Most Popular</span></div><div class="svc-price">From AED 50</div><div class="svc-tag">Clean hands & nails</div></div></div>
+<div class="svc-card"><div class="svc-img"><img alt="Pedicure service" src="/images/services5_pedicure.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Pedicure</div></div><div class="svc-price">From AED 60</div><div class="svc-tag">Foot care & massage</div></div></div>
+<div class="svc-card"><div class="svc-img"><img alt="Hair coloring service" src="/images/services6_haircoloring.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Hair Coloring & Treatments</div></div><div class="svc-price">From AED 70</div><div class="svc-tag">Color · Keratin · Perm</div></div></div>
 </div>
 <div class="full-pricelist-btn">
 <button class="full-pricelist-toggle" data-event="pricelist_expand" id="priceToggle" onclick="openPriceModal()">
         Show Full Price List
       </button>
+<div style="margin-top:14px;">
+<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="services-whatsapp" rel="noopener" target="_blank">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+WhatsApp Us
+</a>
+</div>
 </div>
 </div>
 </section>
@@ -598,22 +963,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="gallery-grid">
 <div class="gallery-item">
-<img alt="Salon storefront" src="images/gallery1_salonstorefront.jpg"/>
+<img alt="Salon storefront" src="/images/gallery1_salonstorefront.jpg"/>
 </div>
 <div class="gallery-item">
-<img alt="Busy salon" src="images/gallery2_busysalon.jpg"/>
+<img alt="Busy salon" src="/images/gallery2_busysalon.jpg"/>
 </div>
 <div class="gallery-item">
-<img alt="Happy client" src="images/gallery3_happyclient.jpg"/>
+<img alt="Happy client" src="/images/gallery3_happyclient.jpg"/>
 </div>
 <div class="gallery-item">
-<img alt="Manicure and pedicure" src="images/gallery4_manipedi.jpg"/>
+<img alt="Manicure and pedicure" src="/images/gallery4_manipedi.jpg"/>
 </div>
 <div class="gallery-item">
-<img alt="Complimentary coffee" src="images/gallery5_coffee.jpg"/>
+<img alt="Complimentary coffee" src="/images/gallery5_coffee.jpg"/>
 </div>
 <div class="gallery-item">
-<img alt="Staff member" src="images/gallery6_staffmember.jpg"/>
+<img alt="Staff member" src="/images/gallery6_staffmember.jpg"/>
 </div>
 </div>
 </div>
@@ -638,7 +1003,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span style="font-size:0.78rem;color:#999;">📍 In front of Nasr Stadium (same building as B60 and KFC)<br/><span style="font-size:0.78rem;color:#999;">Near Lamcy Plaza / Oud Metha Metro Station</span></span>
 <p class="proximity-line">Conveniently located in Oud Metha — just minutes away.</p>
 <div class="loc-badges">
-<span class="loc-badge">🅿 Free Parking</span>
+<span class="loc-badge">🅿 Parking</span>
 <span class="loc-badge">🚇 Near Metro</span>
 </div>
 </div>
@@ -658,7 +1023,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 </div>
 <a class="btn btn--maps btn--full cta-location" data-event="click_location" href="https://maps.app.goo.gl/iWih7YpJwwUCEZE16" id="location-directions" rel="noopener" target="_blank">
-<img alt="Maps" height="18" src="images/googlemaps_icon_2026.png" style="display:block;flex-shrink:0;" width="18"/>
+<img alt="Maps" height="18" src="/images/googlemaps_icon_2026.png" style="display:block;flex-shrink:0;" width="18"/>
           Open in Google Maps
         </a>
 </div>
@@ -710,6 +1075,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="faq-answer">Yes — we offer men's perm and keratin treatments. Call or WhatsApp us to check availability before visiting.</div>
 </details>
 </div>
+<div style="text-align:center;margin-top:26px;">
+<a class="btn btn--wa cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="faq-whatsapp" rel="noopener" target="_blank">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+WhatsApp Us
+</a>
+</div>
 </div>
 </section>
 <footer>
@@ -725,11 +1096,70 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
   window.dataLayer = window.dataLayer || [];
 
+  // === CAROUSELS: infinite loop (by cloning the cards) + arrow buttons. No autoplay, on purpose. ===
+  (function() {
+    var SEL = '.bb-scroller, .pc-scroller, .bb-rscroller, .st-scroller';
+    var touching = false;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function real(sc) { return Array.prototype.filter.call(sc.children, function(c) { return !c.classList.contains('is-clone'); }); }
+    function build(sc) {
+      Array.prototype.slice.call(sc.querySelectorAll(':scope > .is-clone')).forEach(function(c) { c.remove(); });
+      sc.classList.remove('is-looping'); sc.__W = 0;
+      var items = real(sc);
+      items.forEach(function(c, i) { c.setAttribute('data-i', i); });
+      if (items.length < 2) return;
+      var gap = parseFloat(getComputedStyle(sc).columnGap) || 0;
+      var W = items.reduce(function(sum, c) { return sum + c.getBoundingClientRect().width + gap; }, 0);
+      if (W <= sc.clientWidth + 8) return;            // everything already fits: nothing to loop
+      var before = document.createDocumentFragment(), after = document.createDocumentFragment();
+      items.forEach(function(c) {
+        var a = c.cloneNode(true), b = c.cloneNode(true);
+        [a, b].forEach(function(x) { x.classList.add('is-clone'); x.setAttribute('aria-hidden', 'true'); });
+        before.appendChild(a); after.appendChild(b);
+      });
+      sc.insertBefore(before, sc.firstChild); sc.appendChild(after);
+      sc.classList.add('is-looping');
+      var firstAfter = sc.querySelectorAll(':scope > .is-clone')[items.length];
+      sc.__start = items[0].offsetLeft;
+      sc.__W = firstAfter.offsetLeft - items[0].offsetLeft;
+      sc.scrollLeft = sc.__start;
+    }
+    // When scrolling has settled inside a cloned copy, jump (invisibly) to the identical spot in the real cards.
+    function recenter(sc) {
+      if (!sc.__W) return;
+      var x = sc.scrollLeft, s = sc.__start, W = sc.__W;
+      if (x >= s + W - 1) sc.scrollLeft = x - W; else if (x < s - 1) sc.scrollLeft = x + W;
+    }
+    function watch(sc) {
+      var t;
+      sc.__arm = function() { clearTimeout(t); t = setTimeout(function() { if (touching) sc.__arm(); else recenter(sc); }, 150); };
+      sc.addEventListener('scroll', sc.__arm, { passive: true });
+    }
+    function all() { return document.querySelectorAll(SEL); }
+    all().forEach(function(sc) { build(sc); watch(sc); });
+    window.addEventListener('load', function() { all().forEach(function(sc) { if (!sc.classList.contains('is-looping')) build(sc); }); });
+    var lastW = window.innerWidth;
+    window.addEventListener('resize', function() { if (window.innerWidth === lastW) return; lastW = window.innerWidth; all().forEach(build); });
+    function release() { touching = false; all().forEach(function(sc) { if (sc.__arm) sc.__arm(); }); }
+    document.addEventListener('touchstart', function() { touching = true; }, { passive: true });
+    document.addEventListener('touchend', release, { passive: true });
+    document.addEventListener('touchcancel', release, { passive: true });
+    document.querySelectorAll('.bb-arrow').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var sc = btn.closest('.bb-work, .pc-wrap, .bb-rwrap').querySelector(SEL);
+        var gap = parseFloat(getComputedStyle(sc).columnGap) || 12;
+        var one = (sc.firstElementChild ? sc.firstElementChild.offsetWidth : 240) + gap;
+        var step = sc.classList.contains('bb-rscroller') ? one : one * 2;
+        sc.scrollBy({ left: btn.getAttribute('data-dir') === 'next' ? step : -step, behavior: reduce ? 'auto' : 'smooth' });
+      });
+    });
+  })();
+
   // GTM tracking
   document.addEventListener('click', function(e) {
     const el = e.target.closest('[data-event]');
     if (!el) return;
-    if (window.dataLayer) window.dataLayer.push({ event: el.getAttribute('data-event') });
+    if (window.dataLayer) window.dataLayer.push({ event: el.getAttribute('data-event'), cta_id: el.id || '' });
   });
 
   // === DYNAMIC OPEN/CLOSED STATUS (Dubai time, 10AM–1AM) ===
@@ -750,83 +1180,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   })();
 
-
-  // === REVIEW CAROUSEL ===
-  (function() {
-    const outer = document.getElementById('rvOuter');
-    const track = document.getElementById('rvTrack');
-    const nav = document.getElementById('rvNav');
-    if (!track || !outer) return;
-    const cards = Array.from(track.querySelectorAll('.rv-card'));
-    const total = cards.length;
-    let current = 0, autoTimer, paused = false;
-
-    function getPerView() { return window.innerWidth >= 700 ? (window.innerWidth >= 1024 ? 3 : 2) : 1; }
-
-    function setWidths() {
-      const pv = getPerView();
-      const w = (outer.offsetWidth - 12 * (pv - 1)) / pv;
-      cards.forEach(c => { c.style.width = w + 'px'; c.style.minWidth = w + 'px'; });
-    }
-
-    function buildNav() {
-      const pv = getPerView();
-      const pages = Math.ceil(total / pv);
-      nav.innerHTML = '';
-      const prev = document.createElement('button');
-      prev.className = 'rv-arrow'; prev.innerHTML = '‹';
-      prev.onclick = () => { goTo(current - pv); paused = true; setTimeout(() => paused = false, 6000); };
-      nav.appendChild(prev);
-      for (let i = 0; i < pages; i++) {
-        const d = document.createElement('button');
-        d.className = 'rv-dot' + (i === 0 ? ' active' : '');
-        d.onclick = () => { goTo(i * getPerView()); paused = true; setTimeout(() => paused = false, 6000); };
-        nav.appendChild(d);
-      }
-      const next = document.createElement('button');
-      next.className = 'rv-arrow'; next.innerHTML = '›';
-      next.onclick = () => { goTo(current + pv); paused = true; setTimeout(() => paused = false, 6000); };
-      nav.appendChild(next);
-    }
-
-    function updateDots() {
-      const pv = getPerView();
-      const page = Math.floor(current / pv);
-      nav.querySelectorAll('.rv-dot').forEach((d, i) => d.classList.toggle('active', i === page));
-    }
-
-    function goTo(idx) {
-      const pv = getPerView();
-      current = Math.max(0, Math.min(idx, total - pv));
-      const w = cards[0] ? cards[0].offsetWidth + 12 : 0;
-      track.style.transform = 'translateX(-' + (current * w) + 'px)';
-      updateDots();
-    }
-
-    function next() { const pv = getPerView(); goTo(current + pv >= total ? 0 : current + pv); }
-
-    setWidths(); buildNav(); goTo(0);
-    autoTimer = setInterval(() => { if (!paused) next(); }, 4000);
-
-    // Touch/drag
-    let ts = null;
-    outer.addEventListener('touchstart', e => { ts = e.touches[0].clientX; }, { passive: true });
-    outer.addEventListener('touchend', e => {
-      if (!ts) return;
-      const diff = ts - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) { const pv = getPerView(); diff > 0 ? goTo(current + pv) : goTo(current - pv); paused = true; setTimeout(() => paused = false, 6000); }
-      ts = null;
-    });
-    let md = null;
-    outer.addEventListener('mousedown', e => md = e.clientX);
-    outer.addEventListener('mouseup', e => {
-      if (!md) return;
-      const diff = md - e.clientX;
-      if (Math.abs(diff) > 40) { const pv = getPerView(); diff > 0 ? goTo(current + pv) : goTo(current - pv); paused = true; setTimeout(() => paused = false, 6000); }
-      md = null;
-    });
-    window.addEventListener('resize', () => { setWidths(); buildNav(); goTo(current); });
-  })();
 
   // === PRICE LIST MODAL ===
   function openPriceModal() {
@@ -913,6 +1266,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="price-row"><span class="name">Mani, Pedi & Foot Scrub</span><span class="price"><span class="was">AED 160</span>AED 110</span></div>
 </div>
 <p style="font-size:0.76rem;color:var(--text-subtle);margin-top:10px;">All prices inclusive of VAT. Walk-ins welcome.</p>
+<div style="margin-top:16px;">
+<a class="btn btn--wa btn--full cta-whatsapp" data-event="click_whatsapp" href="https://wa.me/971522556307?text=Hi%20%F0%9F%91%8B%20can%20I%20come%20for%20a%20haircut%20now%3F" id="pricelist-whatsapp" rel="noopener" target="_blank">
+<svg fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
+WhatsApp Us
+</a>
+</div>
 </div>
 </div>
 </div>

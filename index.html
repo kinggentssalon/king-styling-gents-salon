@@ -21,7 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
 <link rel="canonical" href="https://kingstyling.ae/"/>
 <title>Barber in Oud Metha | Haircuts from AED 40 | King Styling Gents Salon</title>
-<meta content="Walk-in barber in Oud Metha. Haircuts from AED 40. Beard trims, facials and grooming. No appointment needed." name="description"/>
+<meta content="A fresh cut, a sharper look, and a barber you can choose with confidence. Rated 4.9 on Google. Haircuts from AED 40 in Oud Metha, Dubai. Book online or walk in." name="description"/>
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -89,9 +89,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* === FLOATING BAR — Call 25% | WhatsApp 25% | Book Now 50% === */
+    /* === FLOATING BAR — Call + WhatsApp icon circles | Book Now primary === */
     .float-btns {
-      position: fixed; bottom: 0; left: 0; right: 0;
+      position: fixed; bottom: 0; left: 0; right: 0; align-items: center;
       z-index: 1000; display: flex; flex-direction: row; gap: 10px;
       padding: 10px 12px; background: var(--bg-card); border-top: 1px solid var(--border);
       box-shadow: 0 -2px 12px rgba(0,0,0,0.1);
@@ -106,14 +106,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .float-btn:active { transform: scale(0.97); }
     .float-btn svg { width: 22px; height: 22px; flex-shrink: 0; }
     .float-btn-text { font-size: 0.95rem; font-weight: 700; line-height: 1.2; letter-spacing: 0.02em; white-space: nowrap; }
-    .float-btn--call { flex: 1 1 0; background: #e3e5e4; color: #4a524e; border: none; box-shadow: none; }
+    .float-btn--call { flex: 0 0 52px; width: 52px; height: 52px; padding: 0; border-radius: 50%; background: #e3e5e4; color: #4a524e; border: none; box-shadow: none; }
     .float-btn--call svg { stroke: #4a524e; }
-    .float-btn--wa   { flex: 1 1 0; background: #25d366; color: #fff; }
-    .float-btn--book { flex: 2 1 0; background: var(--book); color: #fff; box-shadow: 0 4px 14px rgba(33,45,39,0.40); }
+    .float-btn--wa   { flex: 0 0 52px; width: 52px; height: 52px; padding: 0; border-radius: 50%; background: #25d366; color: #fff; }
+    .float-btn--book { flex: 1 1 auto; background: var(--book); color: #fff; box-shadow: 0 4px 14px rgba(33,45,39,0.40); }
     body { padding-bottom: 80px; }
     @media (max-width: 600px) {
       .float-btns { gap: 8px; padding: 10px; }
       .float-btn { padding: 16px 6px; border-radius: 12px; }
+      .float-btn--call, .float-btn--wa { padding: 0; border-radius: 50%; }
       body { padding-bottom: 90px; }
     }
     @media (min-width: 700px) {
@@ -170,6 +171,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-pills { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
     .hero-pill-grey { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 500; color: var(--text-mid); background: #f1f3f5; border-radius: 100px; padding: 9px 16px 8px; line-height: 1; }
     .hero-pill-grey svg { width: 12px; height: 12px; flex-shrink: 0; stroke: var(--text-muted); position: relative; top: -1px; }
+    .hero-price-pill strong { color: var(--green); font-weight: 700; margin-left: 3px; }
     h1.hero-title { color: var(--green); margin-bottom: 8px; }
     .hero-tagline { font-family: 'Cardo', serif; font-size: 0.95rem; color: var(--text-muted); margin-bottom: 14px; }
     .hero-subtitle { font-size: 1.05rem; color: var(--text-mid); margin-bottom: 12px; line-height: 1.65; max-width: 500px; font-weight: 500; }
@@ -201,6 +203,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .hero-video { margin: 0; max-width: 320px; }
     }
     .hero-seo { font-size: 0.8rem; color: var(--text-subtle); margin-top: 18px; }
+    .hero-label { font-family: 'Cardo', serif; font-size: 0.95rem; color: var(--text-muted); margin-bottom: 6px; }
+    .hero-facts { font-size: 0.92rem; color: var(--text-mid); margin-bottom: 18px; line-height: 1.5; }
+    .hero-facts .orange { color: var(--orange); }
+    .hero-facts .sep { color: var(--text-subtle); margin: 0 6px; }
+    .hero-micro { font-size: 0.78rem; color: var(--text-muted); margin-top: 10px; }
+
+    /* === NO GUESSWORK === */
+    .ng-section { background: var(--bg); }
+    .ng-section h2 { margin-bottom: 26px; }
+    .ng-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 16px; }
+    @media (min-width: 700px) { .ng-grid { grid-template-columns: repeat(2, 1fr); gap: 26px 32px; } }
+    .ng-icon { width: 38px; height: 38px; border-radius: 10px; background: #eef2ef; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+    .ng-icon svg { width: 20px; height: 20px; stroke: var(--green); }
+    .ng-title { font-size: 0.92rem; font-weight: 700; color: var(--green); line-height: 1.25; margin-bottom: 4px; }
+    .ng-text { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+    .ng-cta { text-align: center; margin-top: 30px; }
+    .loc-cta { margin-top: 18px; background: #eef2ef; border-radius: var(--radius-lg); padding: 22px 20px; text-align: center; }
+    .loc-cta-title { font-family: 'Cardo', serif; font-size: 1.25rem; font-weight: 700; color: var(--green); line-height: 1.25; margin-bottom: 6px; }
+    .loc-cta-text { font-size: 0.86rem; color: var(--text-mid); line-height: 1.55; margin-bottom: 16px; }
+    .cta-micro { font-size: 0.78rem; color: rgba(255,255,255,0.55); margin-top: 12px; }
 
     /* === RATING STRIP === */
     .rating-strip { background: #fff; border-bottom: 1px solid var(--border); padding: 12px 20px; }
@@ -382,6 +404,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .bb-chips { display: flex; flex-wrap: wrap; gap: 6px; }
     .bb-chip { background: #eef2ef; color: var(--green); font-size: 0.8rem; font-weight: 500; padding: 4px 10px; border-radius: 100px; line-height: 1.3; }
     .bb-lang { font-size: 0.85rem; color: var(--text-muted); }
+    .bb-best { font-size: 0.9rem; font-weight: 600; color: var(--green); margin: 2px 0 8px; }
+    .bb-best span { color: var(--orange-dark); font-weight: 700; }
     .bb-book { grid-column: 1 / -1; min-height: 48px; }
     .bb-work { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
     .bb-work-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
@@ -533,34 +557,104 @@ Book Now
 <div class="open-now-hero" id="openStatusHero">
 <span class="dot"></span><span id="openTextHero">Open Now</span>
 </div>
-<h1 class="hero-title">King Styling Gents Salon</h1>
-<p class="hero-tagline">Oud Metha's Trusted Gents Barber</p>
+<p class="hero-label">GENTS BARBER · OUD METHA</p>
+<h1 class="hero-title">Walk Out Feeling Fresh, Sharp &amp; Confident.</h1>
+<p class="hero-subtitle">A great haircut makes all the difference. Find your look with barbers who listen and know their craft.</p>
 <div class="hero-pills">
 <div class="hero-pill-grey">
 <img alt="Google Maps" src="/images/googlemaps_icon_2026.png" width="16" height="16" style="flex-shrink:0;display:block;"/>
 <span style="font-weight:700;color:var(--green);">4.9</span>
 <span style="color:#fbbc04;letter-spacing:1px;">★★★★★</span>
-<span style="color:var(--text-muted);">(250+)</span>
+<span style="color:var(--text-muted);">(<span class="review-count">280+</span> reviews)</span>
 </div>
-<div class="hero-pill-grey">
-<svg fill="none" stroke="#1a1a1a" stroke-width="2.5" viewBox="0 0 24 24" width="12" height="12"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-<span style="color:var(--green);">Oud Metha<span style="color:var(--text-muted);">, Dubai</span></span>
+<div class="hero-pill-grey hero-price-pill">Haircuts from <strong>AED 40</strong></div>
 </div>
-</div>
-<p class="hero-subtitle">Haircuts from <span style="color:var(--orange);">AED 40</span> · Beard trims, facials and more</p>
+<p class="hero-facts">Open daily until 1 AM<span class="sep">·</span>Walk-ins welcome</p>
 <div class="hero-ctas">
 <a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="hero-book" rel="noopener" target="_blank">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
 Book Now
 </a>
 </div>
-<p class="hero-seo">Your local barber in Oud Metha. Walk in today for haircuts, beard trims and men's grooming.</p>
+<p class="hero-micro">Free to book · Change or cancel anytime · Or just walk in</p>
 </div>
 <div class="hero-video">
-<video autoplay="" loop="" muted="" playsinline="" preload="metadata" poster="/images/hero-poster.webp" aria-label="Inside King Styling Gents Salon in Oud Metha">
-<source src="/images/hero.mp4" type="video/mp4"/>
+<video loop="" muted="" playsinline="" preload="none" poster="/images/hero-poster.webp" aria-label="Inside King Styling Gents Salon in Oud Metha" id="heroVideo">
+<source data-src="/images/hero.mp4" type="video/mp4"/>
 <img alt="King Styling Gents Salon in Oud Metha" src="/images/hero-poster.webp"/>
 </video>
+</div>
+</div>
+</section>
+<section class="styles-section" id="styles">
+<div class="container--wide">
+<div class="container">
+<div class="section-header">
+<span class="label">See the Results</span>
+<h2>Picture Your Next Great Cut.</h2>
+<p>Explore real haircuts by our team. Find a look you love, or bring a reference photo of your own.</p>
+</div>
+</div>
+<div class="bb-list">
+<div class="pc-wrap">
+<div class="pc-head">
+<span class="bb-work-label">Real cuts from our barbers</span>
+<span class="bb-hint">Swipe →</span>
+<div class="bb-arrows">
+<button aria-label="Previous styles" class="bb-arrow" data-dir="prev" type="button">‹</button>
+<button aria-label="Next styles" class="bb-arrow" data-dir="next" type="button">›</button>
+</div>
+</div>
+<div aria-label="Haircut styles" class="st-scroller" role="region" tabindex="0">
+<article class="st-card">
+<div class="st-photo"><img alt="Beard trim and fade at King Styling" height="300" loading="lazy" src="/images/styles-beard-fade.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Beard trim &amp; shape</h3><p class="st-desc">Trim, line-up and hot-towel shave.</p><span class="st-meta">About 20 min</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Textured haircut at King Styling" height="300" loading="lazy" src="/images/styles-textured.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Textured &amp; quiff</h3><p class="st-desc">Volume and movement on top, tight on the sides.</p><span class="st-meta">About 25 min</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Taper haircut at King Styling" height="300" loading="lazy" src="/images/styles-taper.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Taper fades</h3><p class="st-desc">Clean, blended sides that grow out neatly.</p><span class="st-meta">About 25 min</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Scissor cut with slick back at King Styling" height="300" loading="lazy" src="/images/styles-scissor-cut-and-slickback.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Scissor cut &amp; slick-back</h3><p class="st-desc">Length kept on top, scissor-shaped and styled back.</p><span class="st-meta">About 25 min</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Buzz cut and skin fade at King Styling" height="300" loading="lazy" src="/images/styles-buzz-cut.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Buzz cuts &amp; skin fades</h3><p class="st-desc">Short, sharp and easy to maintain.</p><span class="st-meta">About 25 min</span></div>
+</article>
+<article class="st-card">
+<div class="st-photo"><img alt="Men’s perm result" height="300" loading="lazy" src="/images/styles-perming.webp" width="240"/></div>
+<div class="st-body"><h3 class="st-name">Men’s perm</h3><p class="st-desc">Natural curls and volume, with a free haircut offer.</p><span class="st-meta">About 2 hrs</span><a class="st-link" data-event="click_perm_details" href="/perming.html" id="styles-perm">See perm details →</a></div>
+</article>
+</div>
+</div>
+<div style="text-align:center;">
+<a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="styles-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book Now
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="ng-section" id="why-us">
+<div class="container--wide" style="max-width:860px;">
+<h2>Good Haircuts Start Before the First Cut.</h2>
+<div class="ng-grid">
+<div class="ng-item"><div class="ng-icon"><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-1a6 6 0 0112 0v1"></path><path d="M17 11l2 2 4-4"></path></svg></div><div class="ng-title">Choose your barber with confidence</div><p class="ng-text">See each barber’s real cuts and customer reviews, then book the one you like.</p></div>
+<div class="ng-item"><div class="ng-icon"><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg></div><div class="ng-title">A haircut that feels like you</div><p class="ng-text">Show us a photo or tell us what you want. We’ll agree on the look before we start.</p></div>
+<div class="ng-item"><div class="ng-icon"><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div><div class="ng-title">The little extras are included</div><p class="ng-text">Every haircut includes a wash, hot towel and styling. Coffee’s on us, too.</p></div>
+<div class="ng-item"><div class="ng-icon"><svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg></div><div class="ng-title">Book around your day</div><p class="ng-text">Choose a time that suits you, or simply walk in. We’re open daily until 1 AM.</p></div>
+</div>
+<div class="ng-cta">
+<a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="whyus-book" rel="noopener" target="_blank">
+<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+Book Now
+</a>
 </div>
 </div>
 </section>
@@ -568,7 +662,7 @@ Book Now
 <div class="container">
 <div class="section-header">
 <span class="label">What Customers Say</span>
-<h2>Why Customers Choose Us</h2>
+<h2>Don’t Just Take Our Word for It.</h2>
 </div>
 <a class="gm-rating-block" data-event="click_reviews" href="https://maps.app.goo.gl/iWih7YpJwwUCEZE16" rel="noopener" target="_blank">
 <img alt="Maps" height="32" src="/images/googlemaps_icon_2026.png" style="display:block;flex-shrink:0;" width="32"/>
@@ -576,10 +670,10 @@ Book Now
 <div class="gm-rating-row">
 <span class="gm-score">4.9</span>
 <span class="gm-stars">★★★★★</span>
-<span class="gm-count">(250+)</span>
+<span class="gm-count">(<span class="review-count">280+</span>)</span>
 </div>
-<div class="gm-label">250+ Google Maps Reviews</div>
-<div class="gm-verified">Verified Google Reviews</div>
+<div class="gm-label"><span class="review-count">280+</span> Google Maps Reviews</div>
+<div class="gm-verified">Read customer reviews on Google Maps</div>
 </div>
 </a>
 <div class="pc-wrap">
@@ -601,11 +695,27 @@ Book Now
 </figcaption>
 </figure>
 <figure class="rc-card">
+<div class="rc-photo"><img alt="Barbers at work inside King Styling Gents Salon" height="225" loading="lazy" src="/images/review3.webp" width="300"/><span class="bb-style">Inside the salon</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“Amazing experience! Professional staff, clean environment, and perfect haircut. Exactly what I wanted. Highly recommended!”</p>
+<span class="rc-who">Naveed · Google review</span>
+</figcaption>
+</figure>
+<figure class="rc-card">
 <div class="rc-photo"><img alt="A King Styling barber with a customer" height="225" loading="lazy" src="/images/review4.webp" width="300"/><span class="bb-style">Our team</span></div>
 <figcaption class="rc-body">
 <div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
 <p class="rc-quote">“Excellent haircut! The atmosphere is really pleasant, everything is very clean, and the service is top-notch. …”</p>
 <span class="rc-who">Halil · Google review</span>
+</figcaption>
+</figure>
+<figure class="rc-card">
+<div class="rc-photo"><img alt="Complimentary coffee served at King Styling" height="225" loading="lazy" src="/images/review5.webp" width="300"/><span class="bb-style">Coffee on us</span></div>
+<figcaption class="rc-body">
+<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
+<p class="rc-quote">“Fantastic salon and service. First time I visited, they took their time, gave a beverage and offered great services. Thanks guys!”</p>
+<span class="rc-who">Sofiène · Google review</span>
 </figcaption>
 </figure>
 <figure class="rc-card">
@@ -617,27 +727,11 @@ Book Now
 </figcaption>
 </figure>
 <figure class="rc-card">
-<div class="rc-photo"><img alt="Barbers at work inside King Styling Gents Salon" height="225" loading="lazy" src="/images/review3.webp" width="300"/><span class="bb-style">Inside the salon</span></div>
-<figcaption class="rc-body">
-<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
-<p class="rc-quote">“Amazing experience! Professional staff, clean environment, and perfect haircut. Exactly what I wanted. Highly recommended!”</p>
-<span class="rc-who">Naveed · Google review</span>
-</figcaption>
-</figure>
-<figure class="rc-card">
-<div class="rc-photo"><img alt="King Styling Gents Salon storefront in Oud Metha" height="225" loading="lazy" src="/images/review2.webp" width="300"/><span class="bb-style">Parking outside</span></div>
+<div class="rc-photo"><img alt="King Styling Gents Salon storefront in Oud Metha" height="225" loading="lazy" src="/images/review2.webp" width="300"/><span class="bb-style">Easy to find</span></div>
 <figcaption class="rc-body">
 <div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
 <p class="rc-quote">“Great team and service. Also the location is very convenient with parking directly outside the store.”</p>
 <span class="rc-who">Mohd · Google review</span>
-</figcaption>
-</figure>
-<figure class="rc-card">
-<div class="rc-photo"><img alt="Complimentary coffee served at King Styling" height="225" loading="lazy" src="/images/review5.webp" width="300"/><span class="bb-style">Coffee on us</span></div>
-<figcaption class="rc-body">
-<div class="rc-stars" aria-label="5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="#fbbc04" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></div>
-<p class="rc-quote">“Fantastic salon and service. First time I visited, they took their time, gave a beverage and offered great services. Thanks guys!”</p>
-<span class="rc-who">Sofiène · Google review</span>
 </figcaption>
 </figure>
 </div>
@@ -650,68 +744,14 @@ Book Now
 </div>
 </div>
 </section>
-<section class="styles-section" id="styles">
-<div class="container--wide">
-<div class="container">
-<div class="section-header">
-<span class="label">Find Your Cut</span>
-<h2>Haircuts and styles we do</h2>
-<p>Not sure what to ask for? Show your barber a photo, or ask what suits your face and hair.</p>
-</div>
-</div>
-<div class="bb-list">
-<div class="pc-wrap">
-<div class="pc-head">
-<span class="bb-work-label">Popular cuts</span>
-<span class="bb-hint">Swipe →</span>
-<div class="bb-arrows">
-<button aria-label="Previous styles" class="bb-arrow" data-dir="prev" type="button">‹</button>
-<button aria-label="Next styles" class="bb-arrow" data-dir="next" type="button">›</button>
-</div>
-</div>
-<div aria-label="Haircut styles" class="st-scroller" role="region" tabindex="0">
-<article class="st-card">
-<div class="st-photo"><img alt="Beard trim and fade at King Styling" height="300" loading="lazy" src="/images/styles-beard-fade.webp" width="240"/></div>
-<div class="st-body"><h3 class="st-name">Beard trim &amp; shape</h3><p class="st-desc">Trim, line-up and hot-towel shave.</p><span class="st-meta">AED 30 · 20 min</span></div>
-</article>
-<article class="st-card">
-<div class="st-photo"><img alt="Textured haircut at King Styling" height="300" loading="lazy" src="/images/styles-textured.webp" width="240"/></div>
-<div class="st-body"><h3 class="st-name">Textured &amp; quiff</h3><p class="st-desc">Volume and movement on top, tight on the sides.</p><span class="st-meta">From AED 40</span></div>
-</article>
-<article class="st-card">
-<div class="st-photo"><img alt="Taper haircut at King Styling" height="300" loading="lazy" src="/images/styles-taper.webp" width="240"/></div>
-<div class="st-body"><h3 class="st-name">Tapers</h3><p class="st-desc">Clean, blended sides that grow out neatly.</p><span class="st-meta">From AED 40</span></div>
-</article>
-<article class="st-card">
-<div class="st-photo"><img alt="Scissor cut with slick back at King Styling" height="300" loading="lazy" src="/images/styles-scissor-cut-and-slickback.webp" width="240"/></div>
-<div class="st-body"><h3 class="st-name">Scissor cut &amp; slick-back</h3><p class="st-desc">Length kept on top, scissor-shaped and styled back.</p><span class="st-meta">From AED 40</span></div>
-</article>
-<article class="st-card">
-<div class="st-photo"><img alt="Buzz cut and skin fade at King Styling" height="300" loading="lazy" src="/images/styles-buzz-cut.webp" width="240"/></div>
-<div class="st-body"><h3 class="st-name">Buzz cuts &amp; skin fades</h3><p class="st-desc">Short, sharp and easy to maintain.</p><span class="st-meta">From AED 40</span></div>
-</article>
-<article class="st-card">
-<div class="st-photo"><img alt="Men’s perm result" height="300" loading="lazy" src="/images/styles-perming.webp" width="240"/></div>
-<div class="st-body"><h3 class="st-name">Men’s perm</h3><p class="st-desc">Natural curls and volume, with a free haircut offer.</p><span class="st-meta">From AED 300 · about 2 hrs</span><a class="st-link" data-event="click_perm_details" href="/perming.html" id="styles-perm">See perm details →</a></div>
-</article>
-</div>
-</div>
-<div style="text-align:center;">
-<a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="styles-book" rel="noopener" target="_blank">
-<svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-Book Now
-</a>
-</div>
-</div>
-</div>
-</section>
+
 <section class="barbers-section" id="barbers">
 <div class="container--wide">
 <div class="container">
 <div class="section-header">
 <span class="label">Our Team</span>
-<h2>Meet the team</h2>
-<p>See their recent work, read what customers say, then book with the person you like.</p>
+<h2>Find the Barber Who Gets Your Style.</h2>
+<p>See their work, hear from their customers, and book the barber who feels right for you.</p>
 </div>
 </div>
 <div class="bb-list">
@@ -722,6 +762,7 @@ Book Now
 <div class="bb-info">
 <span class="bb-role">Barber</span>
 <h3 class="bb-name">Jamal</h3>
+<p class="bb-best"><span>Best at:</span> Scissor cuts, curls &amp; perms</p>
 <div class="bb-chips"><span class="bb-chip">Scissor cuts</span><span class="bb-chip">Perming</span><span class="bb-chip">Anti-dandruff treatment</span><span class="bb-chip">Beard trim</span></div>
 
 <p class="bb-lang">Speaks: English · Hindi · Punjabi</p>
@@ -764,6 +805,7 @@ Book with Jamal
 <div class="bb-info">
 <span class="bb-role">Barber</span>
 <h3 class="bb-name">Jovel</h3>
+<p class="bb-best"><span>Best at:</span> Taper fades &amp; textured styles</p>
 <div class="bb-chips"><span class="bb-chip">Taper fades</span><span class="bb-chip">Buzz cuts</span><span class="bb-chip">Beard trim</span></div>
 
 <p class="bb-lang">Speaks: English · Tagalog</p>
@@ -807,6 +849,7 @@ Book with Jovel
 <div class="bb-info">
 <span class="bb-role">Barber</span>
 <h3 class="bb-name">Uvaish</h3>
+<p class="bb-best"><span>Best at:</span> Clean fades &amp; sharp beards</p>
 <div class="bb-chips"><span class="bb-chip">Fades</span><span class="bb-chip">Beard trim</span></div>
 
 <p class="bb-lang">Speaks: English · Hindi</p>
@@ -846,10 +889,11 @@ Book with Uvaish
 <article class="bb-card bb-card--spec">
 <div class="bb-top">
 <div class="bb-id">
-<div class="bb-portrait"><img alt="Ralph, barber at King Styling Gents Salon" height="240" src="/images/team-ralph.webp" width="240"/></div>
+<div class="bb-portrait"><img alt="Ralph (Raffy), nails and facials specialist at King Styling Gents Salon" height="240" src="/images/team-ralph.webp" width="240"/></div>
 <div class="bb-info">
 <span class="bb-role">Nails &amp; Facials Specialist</span>
 <h3 class="bb-name">Ralph (Raffy)</h3>
+<p class="bb-best"><span>Best at:</span> Facials, hand &amp; foot care</p>
 <div class="bb-chips"><span class="bb-chip">Manicure</span><span class="bb-chip">Pedicure</span><span class="bb-chip">Facials</span></div>
 <p class="bb-lang">Speaks: English · Tagalog</p>
 </div>
@@ -892,23 +936,22 @@ Book with Ralph
 <div class="container--wide">
 <div class="container">
 <div class="section-header">
-<span class="label">What We Do</span>
-<h2>Popular Services</h2>
-<p>Quick overview of our most requested services</p>
-<p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">Most popular services — quick, clean, and affordable</p>
+<span class="label">Popular Services</span>
+<h2>Great Service. Clear Prices.</h2>
+<p>Pick your service with confidence. You’ll know the price before you book.</p>
 </div>
 </div>
 <div class="services-grid" style="max-width:980px;margin:0 auto;padding:0 20px;">
 <div class="svc-card"><div class="svc-img"><img alt="Haircut service" src="/images/services1_haircut.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Haircut</div><span class="svc-badge">🔥 Most Popular</span></div><div class="svc-price">From AED 40</div><div class="svc-tag">Classic · Fade · Taper</div></div></div>
 <div class="svc-card"><div class="svc-img"><img alt="Beard trim service" src="/images/services2_beardtrim.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Beard Trim</div></div><div class="svc-price">From AED 30</div><div class="svc-tag">Trim · Shape · Shave</div></div></div>
-<div class="svc-card"><div class="svc-img"><img alt="Facial service" src="/images/services3_facial.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Facials</div><span class="svc-badge">🔥 Most Popular</span></div><div class="svc-price">From AED 60</div><div class="svc-tag">Deep clean & refresh</div></div></div>
-<div class="svc-card"><div class="svc-img"><img alt="Manicure service" src="/images/services4_manicure.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Manicure</div><span class="svc-badge">🔥 Most Popular</span></div><div class="svc-price">From AED 50</div><div class="svc-tag">Clean hands & nails</div></div></div>
+<div class="svc-card"><div class="svc-img"><img alt="Facial service" src="/images/services3_facial.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Facials</div></div><div class="svc-price">From AED 60</div><div class="svc-tag">Deep clean & refresh</div></div></div>
+<div class="svc-card"><div class="svc-img"><img alt="Manicure service" src="/images/services4_manicure.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Manicure</div></div><div class="svc-price">From AED 50</div><div class="svc-tag">Clean hands & nails</div></div></div>
 <div class="svc-card"><div class="svc-img"><img alt="Pedicure service" src="/images/services5_pedicure.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Pedicure</div></div><div class="svc-price">From AED 60</div><div class="svc-tag">Foot care & massage</div></div></div>
 <div class="svc-card"><div class="svc-img"><img alt="Hair coloring service" src="/images/services6_haircoloring.jpg"/></div><div class="svc-body"><div class="svc-top"><div class="svc-name">Hair Coloring & Treatments</div></div><div class="svc-price">From AED 70</div><div class="svc-tag">Color · Keratin · Perm</div></div></div>
 </div>
 <div class="full-pricelist-btn">
 <button class="full-pricelist-toggle" data-event="pricelist_expand" id="priceToggle" onclick="openPriceModal()">
-        Show Full Price List
+        Show Full Service List
       </button>
 <div style="margin-top:14px;">
 <a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="services-book" rel="noopener" target="_blank">
@@ -922,8 +965,8 @@ Book Now
 <section class="fade-in" id="location">
 <div class="container">
 <div class="section-header">
-<span class="label">Find Us</span>
-<h2>Location</h2>
+<span class="label">Location</span>
+<h2>Find us in Oud Metha</h2>
 </div>
 <div class="location-card">
 <a href="https://maps.app.goo.gl/iWih7YpJwwUCEZE16" rel="noopener" style="display:block;" target="_blank" data-event="click_location" class="cta-location">
@@ -939,7 +982,7 @@ Book Now
 <span style="font-size:0.78rem;color:#999;">📍 In front of Nasr Stadium (same building as B60 and KFC)<br/><span style="font-size:0.78rem;color:#999;">Near Lamcy Plaza / Oud Metha Metro Station</span></span>
 <p class="proximity-line">Conveniently located in Oud Metha — just minutes away.</p>
 <div class="loc-badges">
-<span class="loc-badge">🅿 Parking</span>
+<span class="loc-badge">🅿 Plenty of parking nearby</span>
 <span class="loc-badge">🚇 Near Metro</span>
 </div>
 </div>
@@ -964,17 +1007,12 @@ Book Now
         </a>
 </div>
 </div>
-</div>
-</section>
-<section id="contact">
-<div class="cta-block">
-<span class="label">Ready for a fresh look?</span>
-<h2>Book Ahead or Walk In</h2>
-<p>Book your barber and time in under a minute, or walk in and we'll fit you in. Open daily 10 AM – 1 AM in Oud Metha.</p>
-<div class="cta-buttons">
-<a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="footer-book" rel="noopener" target="_blank">
+<div class="loc-cta">
+<p class="loc-cta-title">Your next fresh cut is just a booking away.</p>
+<p class="loc-cta-text">Choose your barber and a time that works for you. Booking is free, and you can change or cancel anytime.</p>
+<a class="btn btn--book btn--full cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="location-book" rel="noopener" target="_blank">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-Book Now
+Book My Chair
 </a>
 </div>
 </div>
@@ -986,6 +1024,42 @@ Book Now
 <h2>Common Questions</h2>
 </div>
 <div class="faq-list">
+<details>
+<summary>How long will I wait if I walk in?</summary>
+<div class="faq-answer">You can often be seated right away, but there may be a short wait at busy times. It can be busier on Friday and Saturday evenings. Booking online helps you plan your visit and avoid unnecessary waiting.</div>
+</details>
+<details>
+<summary>Can I choose my barber?</summary>
+<div class="faq-answer">Yes. Pick Jamal, Jovel or Uvaish when you book, or ask for them when you walk in.</div>
+</details>
+<details>
+<summary>What if I'm not sure what cut to ask for?</summary>
+<div class="faq-answer">Show us a photo, or ask your barber what suits your face and hair. We agree the look before we start.</div>
+</details>
+<details>
+<summary>What is included with a haircut?</summary>
+<div class="faq-answer">Every haircut comes with a wash, simple styling and a hot towel.</div>
+</details>
+<details>
+<summary>Can I cancel or change my booking?</summary>
+<div class="faq-answer">Yes. You can change or cancel your booking anytime.</div>
+</details>
+<details>
+<summary>How can I pay?</summary>
+<div class="faq-answer">Cash, card, Apple Pay and Google Pay.</div>
+</details>
+<details>
+<summary>Do you cut kids' hair?</summary>
+<div class="faq-answer">Yes, kids' haircut is AED 30. Our barbers are patient with little ones.</div>
+</details>
+<details>
+<summary>Is there parking?</summary>
+<div class="faq-answer">Yes, there are plenty of parking options nearby, and Oud Metha Metro is a short walk away.</div>
+</details>
+<details>
+<summary>Which languages do your barbers speak?</summary>
+<div class="faq-answer">English, Hindi, Punjabi and Tagalog.</div>
+</details>
 <details>
 <summary>Do I need an appointment?</summary>
 <div class="faq-answer">No — walk-ins are always welcome. For hair straightening or keratin treatments, a quick call ahead is recommended to ensure a stylist is available.</div>
@@ -1007,12 +1081,20 @@ Book Now
 <div class="faq-answer">Yes — we offer men's perm and keratin treatments. Call or WhatsApp us to check availability before visiting.</div>
 </details>
 </div>
-<div style="text-align:center;margin-top:26px;">
-<a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="faq-book" rel="noopener" target="_blank">
+</div>
+</section>
+<section id="contact">
+<div class="cta-block">
+<span class="label">Ready for a fresh look?</span>
+<h2>Book Ahead or Walk In</h2>
+<p>Ready to feel fresh and look your best? Choose your barber, book a convenient time, or simply walk in. We’re open until 1 AM.</p>
+<div class="cta-buttons">
+<a class="btn btn--book cta-book" data-event="click_book_now" href="https://kingstyling.mywaj.ai/en/booking/services?branch=066d076" id="footer-book" rel="noopener" target="_blank">
 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
 Book Now
 </a>
 </div>
+<p class="cta-micro">Free to book · Change or cancel anytime</p>
 </div>
 </section>
 <footer>
@@ -1096,6 +1178,19 @@ Book Now
     if (window.dataLayer) window.dataLayer.push({ event: el.getAttribute('data-event'), cta_id: el.id || '' });
   });
 
+  // === REVIEW COUNT: change it here (and in the meta description) next time ===
+  const REVIEW_COUNT = '280+';
+  document.querySelectorAll('.review-count').forEach(function(el) { el.textContent = REVIEW_COUNT; });
+
+  // === HERO VIDEO: poster shows at once, video loads only after the page has finished loading ===
+  window.addEventListener('load', function() {
+    var v = document.getElementById('heroVideo');
+    if (!v) return;
+    var src = v.querySelector('source[data-src]');
+    if (src) { src.src = src.getAttribute('data-src'); v.load(); }
+    var p = v.play(); if (p && p.catch) p.catch(function() {});
+  });
+
   // === DYNAMIC OPEN/CLOSED STATUS (Dubai time, 10AM–1AM) ===
   (function() {
     const now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Dubai' }));
@@ -1151,7 +1246,7 @@ Book Now
 <div class="price-modal-overlay" id="priceModal" onclick="closePriceModalOutside(event)">
 <div class="price-modal">
 <div class="price-modal-header">
-<h3>Full Price List</h3>
+<h3>Full Service List</h3>
 <button aria-label="Close" class="price-modal-close" onclick="closePriceModal()">×</button>
 </div>
 <div class="price-modal-body">
